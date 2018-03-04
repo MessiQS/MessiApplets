@@ -1,2 +1,11 @@
 <!--pages/province_selection/province_selection.wxml-->
-<text>pages/province_selection/province_selection.wxml</text>
+<view class='province-container'>
+  <view class='selection'>
+    <view bindtap="selectType" data-index = "{{index}}"  class='item {{index === currentIndex ? "current" : ""}}' wx:for="{{selectItems}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view class='content'>
+    <text>11</text>
+  </view>
+</view>

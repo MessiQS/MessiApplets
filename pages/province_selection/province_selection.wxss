@@ -1,1 +1,37 @@
 /* pages/province_selection/province_selection.wxss */
+
+page {
+  height: 100%;
+}
+
+.province-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  flex: 1;
+}
+
+.selection {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px #dcdcdc solid;
+}
+
+.selection .item {
+  flex:1;
+  text-align:center;
+  font-size:14px;
+  height:100%;
+  align-items:center;
+  display:flex;
+  justify-content:center;
+}
+.selection .item.current{
+  border-bottom: #8FDA3C 2px solid;
+  color: #8FDA3C
+}
+.content {
+  flex: 14;
+}
