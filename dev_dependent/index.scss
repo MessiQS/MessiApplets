@@ -3,33 +3,35 @@
     height: 100%;
     width: 100%;
     background-color: #F6F6F6;
-
     .select-container {
         flex-direction: row;
         margin-top: 10px;
         background-color: white;
         height: 78px;
-
         .green-block {
             position: absolute;
             left: 10px;
             top: 31.5px;
-          }
-      }
-
-      .select-container::after {
+        }
+        .title-container {
+          position: absolute;
+          left: 30px;
+          right: 100px;
+          height: 78px;
+          background-color: black;
+        }
+    }
+    .select-container::after {
         border: none;
         border-radius: 0;
-      }
-      .section {
-        margin-top: 10px;  
+    }
+    .section {
+        margin-top: 10px;
         background-color: white;
         height: 200px;
-      }
-
-      .block {
+    }
+    .block {
         width: 15px;
         height: 15px;
-      }
+    }
 }
-

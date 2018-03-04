@@ -12,6 +12,12 @@
       position: absolute;
       left: 10px;
       top: 31.5px; }
+    .home-container .select-container .title-container {
+      position: absolute;
+      left: 30px;
+      right: 100px;
+      height: 78px;
+      background-color: black; }
   .home-container .select-container::after {
     border: none;
     border-radius: 0; }
