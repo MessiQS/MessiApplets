@@ -2,10 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-<<<<<<< HEAD
-    "pages/home/home",
-=======
->>>>>>> 4d701fe24af6b886e4adcfcf2f00488786a1a2f0
     "pages/answer_detail/answer_detail",
     "pages/province_selection/province_selection",
     "pages/paper_selection/paper_selection"
