@@ -15,20 +15,19 @@
       top: 31.5px; }
     .home-container .select-container .title-container {
       position: absolute;
-      flex-direction: column;
-      align-items: flex-start;
       left: 30px;
       right: 100px;
-      height: 78px;
-      background-color: blue; }
+      height: 78px; }
       .home-container .select-container .title-container .title-paper-name {
-        right: 0;
-        font-size: 16;
-        color: #172434;
+        display: inline-block;
+        margin-top: 17px;
         text-align: left;
         width: 100%;
         background-color: white;
-        margin-right: 0px; }
+        line-height: 25px; }
+      .home-container .select-container .title-container .title-paper-detail {
+        margin-top: 5px;
+        line-height: 20px; }
   .home-container .select-container::after {
     border: none;
     border-radius: 0; }
@@ -39,5 +38,11 @@
   .home-container .block {
     width: 15px;
     height: 15px; }
+  .home-container .h2 {
+    font-size: 16px;
+    color: #172434; }
+  .home-container .p {
+    font-size: 12px;
+    color: #8E9091; }
 
 /*# sourceMappingURL=index.wxss.map */

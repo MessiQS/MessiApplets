@@ -1,6 +1,10 @@
 <scroll-view class='home-container'>
   <view class='select-container' bindtap = "bindViewTap">
     <image class='green-block block' src='../../images/green_block.png'></image>
+    <view class='title-container'>
+      <text class='title-paper-name h2'>当前暂无题库信息</text>
+      <text class='p'>历年真题</text>
+    </view>
   </view>
   <view class='section'></view>
   <view class='section'></view>
