@@ -1,11 +1,25 @@
 <!--pages/province_selection/province_selection.wxml-->
 <view class='province-container'>
   <view class='selection'>
-    <view bindtap="selectType" data-index = "{{index}}"  class='item {{index === currentIndex ? "current" : ""}}' wx:for="{{selectItems}}">
+    <view bindtap="selectType" data-index="{{index}}" wx:key='{{index}}' class='item {{index === currentIndex ? "current" : ""}}' wx:for="{{selectItems}}">
       <text>{{item}}</text>
     </view>
   </view>
-  <view class='content'>
-    <text>11</text>
-  </view>
+  <swiper current="{{currentIndex}}" class='content' duration='200' bindchange="swiperChange">
+    <swiper-item>
+      <scroll-view scroll-y class='scroll'>
+        <view class="scroll-item" wx:for="{{list}}" wx:key="{{item.title}}">
+          <text class="title">{{item.title}}</text>
+          <text class="number">{{item.length}}套真题</text>
+        </view>
+      </scroll-view>
+
+    </swiper-item>
+    <swiper-item>
+      <text>22</text>
+    </swiper-item>
+    <swiper-item>
+      <text>33</text>
+    </swiper-item>
+  </swiper>
 </view>

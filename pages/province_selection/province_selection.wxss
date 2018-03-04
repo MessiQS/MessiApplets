@@ -30,5 +30,23 @@ page {
 
 .content {
   flex: 14; }
+  .content .scroll {
+    height: 100%;
+    background-color: #f6f6f6; }
+    .content .scroll .scroll-item {
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      background-color: #fff;
+      margin-top: 4px;
+      position: relative;
+      color: #333; }
+      .content .scroll .scroll-item .title {
+        margin-left: 20px;
+        width: 90px;
+        display: inline-block; }
+      .content .scroll .scroll-item .number {
+        font-size: 12px;
+        color: #9B9B9B; }
 
 /*# sourceMappingURL=province_selection.wxss.map */

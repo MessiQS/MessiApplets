@@ -34,5 +34,27 @@ page {
   }
   .content {
     flex: 14;
+    .scroll{
+      height: 100%;
+      background-color: #f6f6f6;
+      .scroll-item{
+        height: 36px;
+        line-height: 36px;
+        font-size:16px;
+        background-color: #fff;
+        margin-top: 4px;
+        position: relative;
+        color:#333;
+        .title{
+          margin-left: 20px;
+          width: 90px;
+          display: inline-block;
+        }
+        .number{
+          font-size: 12px;
+          color:#9B9B9B;
+        }
+      }
+    }
   }
   

@@ -1,4 +1,5 @@
 // pages/province_selection/province_selection.js
+const Http = require('../../utils/http.js')
 Page({
 
   /**
@@ -6,18 +7,36 @@ Page({
    */
   data: {
     selectItems: ['历年真题', '专项练习', '申论'],
-    currentIndex:1
+    currentIndex: 0,
+    list:[]
   },
-  selectType:function(event){
+  selectType: function (event) {
     this.setData({
       currentIndex: event.currentTarget.dataset.index
+    })
+  },
+  swiperChange: function (event) {
+    this.setData({
+      currentIndex: event.detail.current
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this = this;
+    Http.get('/api/papertype', {
+      user_id: "SS00000001"
+    }, function (argu) {
+      const list = argu.data.data.map(res => ({
+        title:res.title,
+        length:res.data.length
+      }))
+      console.log(list)
+      _this.setData({
+        list
+      })
+    })
   },
 
   /**
