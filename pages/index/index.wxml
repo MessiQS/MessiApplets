@@ -1,7 +1,7 @@
 <scroll-view class='home-container'>
-  <button class='select-container' bindtap = "bindViewTap">
+  <view class='select-container' bindtap = "bindViewTap">
     <image class='green-block block' src='../../images/green_block.png'></image>
-  </button>
+  </view>
   <view class='section'></view>
   <view class='section'></view>
 </scroll-view>
