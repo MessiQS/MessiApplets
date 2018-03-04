@@ -4,6 +4,7 @@
   width: 100%;
   background-color: #F6F6F6; }
   .home-container .select-container {
+    position: relative;
     flex-direction: row;
     margin-top: 10px;
     background-color: white;
@@ -14,10 +15,20 @@
       top: 31.5px; }
     .home-container .select-container .title-container {
       position: absolute;
+      flex-direction: column;
+      align-items: flex-start;
       left: 30px;
       right: 100px;
       height: 78px;
-      background-color: black; }
+      background-color: blue; }
+      .home-container .select-container .title-container .title-paper-name {
+        right: 0;
+        font-size: 16;
+        color: #172434;
+        text-align: left;
+        width: 100%;
+        background-color: white;
+        margin-right: 0px; }
   .home-container .select-container::after {
     border: none;
     border-radius: 0; }

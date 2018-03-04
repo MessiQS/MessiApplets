@@ -1,7 +1,11 @@
 <scroll-view class='home-container'>
-  <button class='select-container'>
+  <view class='select-container'>
     <image class='green-block block' src='../../images/green_block.png'></image>
-  </button>
+    <view class='title-container'>
+      <label class='title-paper-name'>当前暂无题库信息</label>
+      <label></label>
+    </view>
+  </view>
   <view class='section'></view>
   <view class='section'></view>
 </scroll-view>

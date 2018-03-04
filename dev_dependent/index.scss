@@ -4,6 +4,7 @@
     width: 100%;
     background-color: #F6F6F6;
     .select-container {
+        position: relative;
         flex-direction: row;
         margin-top: 10px;
         background-color: white;
@@ -14,11 +15,22 @@
             top: 31.5px;
         }
         .title-container {
-          position: absolute;
-          left: 30px;
-          right: 100px;
-          height: 78px;
-          background-color: black;
+            position: absolute;
+            flex-direction: column;
+            align-items: flex-start;
+            left: 30px;
+            right: 100px;
+            height: 78px;
+            background-color: blue;
+            .title-paper-name {
+                right: 0;
+                font-size: 16;
+                color: #172434;
+                text-align: left;
+                width: 100%;
+                background-color: white;
+                margin-right: 0px;
+            }
         }
     }
     .select-container::after {
