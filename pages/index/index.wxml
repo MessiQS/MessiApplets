@@ -1,7 +1,38 @@
 <scroll-view class='home-container'>
-  <button class='select-container' bindtap = "bindViewTap">
+  <view class='select-container' bindtap = "bindViewTap">
     <image class='green-block block' src='../../images/green_block.png'></image>
-  </button>
-  <view class='section'></view>
-  <view class='section'></view>
+    <view class='title-container'>
+      <text class='title-paper-name h2'>当前暂无题库信息</text>
+      <text class='title-paper-detail p'>历年真题</text>
+    </view>
+    <image class='arrow arrow-0' mode='aspectFit' src='../../images/arrow.png'></image>
+  </view>
+  <view class='section'>
+    <view class='section-top'>
+      <image class='section-block block' src='../../images/blue_block.png'></image>
+      <text class='h4 section-top-title'>过去5日刷题数量统计</text>
+      <text class='section-top-right-title blue'>刷新题</text>
+      <image class='arrow arrow-1' mode='aspectFit' src='../../images/arrow.png'></image>
+    </view>
+    <view class='separator'></view>
+    <view class='section-bottom'>
+      <text class='last-date'>最后刷题日：</text>
+      <text class='average'>平均値：</text>
+      <text class='right-detail'>剩余：</text>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='section-top'>
+      <image class='section-block block' src='../../images/red_block.png'></image>
+      <text class='h4 section-top-title'>未来5日遗忘数量预测</text>
+      <text class='section-top-right-title red'>刷错题</text>
+      <image class='arrow arrow-1' mode='aspectFit' src='../../images/arrow.png'></image>
+    </view>
+    <view class='separator'></view>
+    <view class='section-bottom'>
+      <text class='last-date'>最后刷题日：</text>
+      <text class='average'>平均値：</text>
+      <text class='right-detail'>剩余：</text>
+    </view>
+  </view>
 </scroll-view>
