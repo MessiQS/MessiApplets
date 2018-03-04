@@ -2,8 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "modules/storeManager.js",
-    "pages/home/home",
     "pages/answer_detail/answer_detail",
     "pages/province_selection/province_selection",
     "pages/paper_selection/paper_selection"
