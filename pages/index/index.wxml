@@ -17,7 +17,6 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{lola}}</text>
-  </view>
+  <canvas class="usermotto" canvas-id="firstCanvas">
+  </canvas> >
 </view>
