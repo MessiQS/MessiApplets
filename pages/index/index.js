@@ -16,6 +16,12 @@ Page({
       url: '../logs/logs'
     })
   },
+  //去选题
+  navigateToPaper: function(){
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
