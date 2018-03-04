@@ -1,10 +1,26 @@
-/* pages/index/index.wxss */
-.container {
-  height: 100%;
-  display: flex;
+.home-container {
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  height: 100%;
+  width: 100%;
+  background-color: #F6F6F6; }
+  .home-container .select-container {
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: white;
+    height: 78px; }
+    .home-container .select-container .green-block {
+      position: absolute;
+      left: 10px;
+      top: 31.5px; }
+  .home-container .select-container::after {
+    border: none;
+    border-radius: 0; }
+  .home-container .section {
+    margin-top: 10px;
+    background-color: white;
+    height: 200px; }
+  .home-container .block {
+    width: 15px;
+    height: 15px; }
+
+/*# sourceMappingURL=index.wxss.map */
