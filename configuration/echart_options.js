@@ -1,4 +1,4 @@
-export const newPaper = {
+const newPaper = {
   option: {
     grid: {
       left: '15',
@@ -93,7 +93,7 @@ export const newPaper = {
   }
 }
 
-export const rememberPaper = {
+const rememberPaper = {
   option: {
     grid: {
       left: '15',
@@ -195,7 +195,7 @@ export const rememberPaper = {
   }
 }
 
-export const pieOption = {
+const pieOption = {
 
   option: {
     animation: false,
@@ -231,4 +231,9 @@ export const pieOption = {
       }
     ]
   }
+}
+module.exports = {
+  newPaper,
+  pieOption,
+  pieOption
 }
