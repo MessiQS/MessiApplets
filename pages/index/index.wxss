@@ -14,9 +14,8 @@
       left: 10px;
       top: 31.5px; }
     .home-container .select-container .title-container {
-      position: absolute;
-      left: 30px;
-      right: 100px;
+      margin-left: 35px;
+      width: 70%;
       height: 78px; }
       .home-container .select-container .title-container .title-paper-name {
         display: inline-block;
@@ -28,21 +27,62 @@
       .home-container .select-container .title-container .title-paper-detail {
         margin-top: 5px;
         line-height: 20px; }
+    .home-container .select-container .arrow-0 {
+      position: absolute;
+      top: 34px;
+      right: 18.8px; }
   .home-container .select-container::after {
     border: none;
     border-radius: 0; }
   .home-container .section {
+    flex-direction: column;
     margin-top: 10px;
     background-color: white;
     height: 200px; }
+    .home-container .section .section-top {
+      position: relative;
+      height: 48px;
+      width: 100%; }
+      .home-container .section .section-top .section-block {
+        margin-left: 10px;
+        margin-top: 16.5px; }
+      .home-container .section .section-top .section-top-title {
+        margin-left: 10px;
+        height: 100%; }
+      .home-container .section .section-top .section-top-right-title {
+        position: absolute;
+        top: 12px;
+        right: 50px;
+        font-size: 16px; }
+      .home-container .section .section-top .blue {
+        color: #1495EB; }
+      .home-container .section .section-top .red {
+        color: #FF5B29; }
+      .home-container .section .section-top .arrow-1 {
+        position: absolute;
+        top: 19px;
+        right: 18.8px; }
   .home-container .block {
     width: 15px;
     height: 15px; }
   .home-container .h2 {
     font-size: 16px;
     color: #172434; }
+  .home-container .h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #172434; }
   .home-container .p {
     font-size: 12px;
     color: #8E9091; }
+  .home-container .arrow {
+    width: 7.4px;
+    height: 10px; }
+  .home-container .separator {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 1px;
+    background-color: #7A8FAC;
+    opacity: 0.1; }
 
 /*# sourceMappingURL=index.wxss.map */
