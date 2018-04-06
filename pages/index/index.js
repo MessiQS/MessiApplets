@@ -22,6 +22,12 @@ Page({
       url: '../logs/logs'
     })
   },
+  /// 去答题
+  navigateToAnswerDetail: function() {
+    wx.navigateTo({
+      url: '../answer_detail/answer_detail'
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

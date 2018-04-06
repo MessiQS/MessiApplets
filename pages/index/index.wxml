@@ -8,7 +8,7 @@
     <image class='arrow arrow-0' mode='aspectFit' src='../../images/arrow.png'></image>
   </view>
   <view class='section'>
-    <view class='section-top'>
+    <view class='section-top' bindtap='navigateToAnswerDetail'>
       <image class='section-block block' src='../../images/blue_block.png'></image>
       <text class='h4 section-top-title'>过去5日刷题数量统计</text>
       <text class='section-top-right-title blue'>刷新题</text>

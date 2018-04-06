@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/answer_detail/answer_detail",
     "pages/province_selection/province_selection",
-    "pages/paper_selection/paper_selection"
+    "pages/paper_selection/paper_selection",
+    "pages/category_selection/category_selection"
   ],
   "window": {
     "backgroundTextStyle": "light",

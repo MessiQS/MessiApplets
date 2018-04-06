@@ -1,2 +1,54 @@
-<!--pages/answer_detail/answer_detail.wxml-->
-<text>pages/answer_detail/answer_detail.wxml</text>
+<view class='answer-container'>
+  <view class="section-top">
+    <scroll-view scroll-y class='section-scroll'>
+      <view class="question-content">
+        <text class="question-content-text">{{questionPaper.question}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="separator"></view>
+  <view class="section-bottom">
+    <scroll-view scroll-y class='answer-scroll'>
+      <view class="answer-right-wrong">
+        <block wx:if="{{isSelected==false}}">
+          <view wx:if="{{selectedIsRight}}">
+            <text>"答案正确！"</text>
+          </view>
+        </block>
+      </view>
+      <view id='answer-A' class='answer' bindtap="answerClick" data-option='A' hover-class='answer-selected' hover-stay-time='200'>
+        <view class='left-tab-container'>
+          <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
+        </view>
+        <view class='right-tab-container'>
+          <text class='right-tab-answer-title'>{{questionPaper.option_A}}</text>
+        </view>
+      </view>
+      <view id='answer-B' class='answer' bindtap="answerClick" data-option='B' hover-class='answer-selected' hover-stay-time='200'>
+        <view class='left-tab-container'>
+          <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
+        </view>
+        <view class='right-tab-container'>
+          <text class='right-tab-answer-title'>{{questionPaper.option_B}}</text>
+        </view>
+      </view>
+      <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" data-option='C' hover-class='answer-selected' hover-stay-time='200'>
+        <view class='left-tab-container'>
+          <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
+        </view>
+        <view class='right-tab-container'>
+          <text class='right-tab-answer-title'>{{questionPaper.option_C}}</text>
+        </view>
+      </view>
+      <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" data-option='D' hover-class='answer-selected' hover-stay-time='200'>
+        <view class='left-tab-container'>
+          <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
+        </view>
+        <view class='right-tab-container'>
+          <text class='right-tab-answer-title'>{{questionPaper.option_D}}</text>
+        </view>
+      </view>
+      <view wx:if="{{isSelected}}" class='analysis'></view>
+    </scroll-view>
+  </view>
+</view>
