@@ -118,35 +118,53 @@ Page({
 
   singleChoiceQuestion: function (option) {
 
-    console.log("singleChoiceQuestion option", option)
+    console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)
 
+
+    var isRight = option == this.data.questionPaper.answer ? true : false;
+
+    let itemStatus = ItemStatus.NORMAL;
+    if (isRight) {
+
+      itemStatus = ItemStatus.RIGHT;
+
+    } else {
+      
+      itemStatus = ItemStatus.ERROR;
+    }
+    
+    console.log("isRight ", isRight);
 
     if (option == "A") {
       this.setData({
         isSelected: true,
         selectedOption: [option],
-        A_Status: itemStatus
+        A_Status: itemStatus,
+        selectedIsRight: isRight
       })
     }
     if (option == "B") {
       this.setData({
         isSelected: true,
         selectedOption: [option],
-        B_Status: itemStatus
+        B_Status: itemStatus,
+        selectedIsRight: isRight
       })
     }
     if (option == "C") {
       this.setData({
         isSelected: true,
         selectedOption: [option],
-        C_Status: itemStatus
+        C_Status: itemStatus,
+        selectedIsRight: isRight
       })
     }
     if (option == "D") {
       this.setData({
         isSelected: true,
         selectedOption: [option],
-        D_Status: itemStatus
+        D_Status: itemStatus,
+        selectedIsRight: isRight
       })
     }
   },
@@ -198,7 +216,7 @@ Page({
     });
   },
 
-  renderAnswerTop: function () {
-
+  renderAnswerTopView: function () {
+    
   },
 })

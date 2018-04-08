@@ -26,8 +26,17 @@
     .answer-container .section-bottom .answer-scroll {
       flex-direction: column; }
       .answer-container .section-bottom .answer-scroll .answer-right-wrong {
-        height: 40px;
-        background-color: green; }
+        height: 40px; }
+        .answer-container .section-bottom .answer-scroll .answer-right-wrong .answer-right-text {
+          margin-left: 28px;
+          margin-top: 18px;
+          font-size: 13px;
+          color: #8FDA3C; }
+        .answer-container .section-bottom .answer-scroll .answer-right-wrong .answer-wrong-text {
+          margin-left: 28px;
+          margin-top: 18px;
+          font-size: 13px;
+          color: #FF5B29; }
       .answer-container .section-bottom .answer-scroll .answer {
         height: 50px; }
         .answer-container .section-bottom .answer-scroll .answer .left-tab-container {

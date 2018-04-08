@@ -33,7 +33,18 @@
 
             .answer-right-wrong {
                 height: 40px;
-                background-color: green;
+                .answer-right-text {
+                    margin-left: 28px;
+                    margin-top: 18px;
+                    font-size: 13px;
+                    color: #8FDA3C;
+                }
+                .answer-wrong-text {
+                    margin-left: 28px;
+                    margin-top: 18px;
+                    font-size: 13px;
+                    color: #FF5B29;
+                }
             }
             .answer {
                 height: 50px;

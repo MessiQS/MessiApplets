@@ -10,13 +10,16 @@
   <view class="section-bottom">
     <scroll-view scroll-y class='answer-scroll'>
       <view class="answer-right-wrong">
-        <block wx:if="{{isSelected==false}}">
+        <block wx:if="{{isSelected}}">
           <view wx:if="{{selectedIsRight}}">
-            <text>"答案正确！"</text>
+            <text class='answer-right-text'>答案正确！</text>
+          </view>
+          <view wx:if="{{selectedIsRight==false}}">
+            <text class='answer-wrong-text'>答案错误！</text>
           </view>
         </block>
       </view>
-      <view id='answer-A' class='answer' bindtap="answerClick" data-option='A' hover-class='answer-selected' hover-stay-time='200'>
+      <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
         <view class='left-tab-container'>
           <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
         </view>
@@ -24,7 +27,7 @@
           <text class='right-tab-answer-title'>{{questionPaper.option_A}}</text>
         </view>
       </view>
-      <view id='answer-B' class='answer' bindtap="answerClick" data-option='B' hover-class='answer-selected' hover-stay-time='200'>
+      <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
         <view class='left-tab-container'>
           <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
         </view>
@@ -32,7 +35,7 @@
           <text class='right-tab-answer-title'>{{questionPaper.option_B}}</text>
         </view>
       </view>
-      <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" data-option='C' hover-class='answer-selected' hover-stay-time='200'>
+      <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
         <view class='left-tab-container'>
           <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
         </view>
@@ -40,7 +43,7 @@
           <text class='right-tab-answer-title'>{{questionPaper.option_C}}</text>
         </view>
       </view>
-      <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" data-option='D' hover-class='answer-selected' hover-stay-time='200'>
+      <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
         <view class='left-tab-container'>
           <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
         </view>
@@ -48,7 +51,9 @@
           <text class='right-tab-answer-title'>{{questionPaper.option_D}}</text>
         </view>
       </view>
-      <view wx:if="{{isSelected}}" class='analysis'></view>
+      <view wx:if="{{isSelected}}" class='analysis'>
+        <text>{{questionPaper.analysis}}</text>
+      </view>
     </scroll-view>
   </view>
 </view>

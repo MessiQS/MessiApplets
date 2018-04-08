@@ -62,6 +62,8 @@
         position: absolute;
         top: 19px;
         right: 18.8px; }
+    .home-container .section .section-top-selected {
+      background-color: #F5F5F5; }
     .home-container .section .section-bottom {
       position: relative;
       height: 48px; }
