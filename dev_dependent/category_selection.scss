@@ -1,0 +1,32 @@
+.container {
+
+    background-color: #f6f6f6;
+    position: absolute;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    .section-view {
+        position: relative;
+        margin-top: 4px;
+        height: 36px;
+        background-color: white;
+
+        .section-title {
+            position: absolute;
+            top: 8px;
+            left: 20px;
+            font-size: 16px;
+            color: #172434;
+        }
+        .arrow {
+            position: absolute;
+            top: 12px;
+            width: 7.4px;
+            height: 12px;
+            right: 26.2px;
+        }
+    }
+    .section-view-selected {
+        background-color: #f5f5f5;
+    }
+}

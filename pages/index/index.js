@@ -13,7 +13,7 @@ Page({
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../province_selection/province_selection'
+      url: '../category_selection/category_selection'
     })
   },
   //去选题

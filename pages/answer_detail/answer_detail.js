@@ -132,8 +132,6 @@ Page({
       
       itemStatus = ItemStatus.ERROR;
     }
-    
-    console.log("isRight ", isRight);
 
     if (option == "A") {
       this.setData({

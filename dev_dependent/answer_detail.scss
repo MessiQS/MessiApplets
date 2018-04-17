@@ -68,7 +68,6 @@
                     }
                 }
                 .right-tab-container {
-                    // float: right;
                     overflow: hidden;
                     .right-tab-answer-title {
                         display: inline;
@@ -82,6 +81,56 @@
                 
             }
         }
-        .analysis {}
+        .analysis {
+            
+            justify-content: center;
+            align-items: center;
+
+            .separator-line {
+                margin-left: 20%;
+                margin-top: 16px;
+                height: 1px;
+                width: 60%;
+                background-color: #979797;
+            }
+            .analysis-title-view {
+                text-align: center;
+                margin-top: 6px;
+                .analysis-title {
+                    font-size: 15px;
+                    color: #FF5B29;
+                    line-height: 20px;   
+                }
+            }
+            .analysis-text-view {
+                margin-top: 35px;
+                margin-right: 44px;
+                margin-left: 44px;
+                margin-bottom: 84px;  
+                           
+                .analysis-text {
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+            .feedback-button {
+                width: 90px;
+                height: 24px;
+                border:1px solid rgba(0,0,0,.75);
+                margin-top: 10px;
+                margin-bottom: 30px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 10px;
+                color: #172434;
+                background-color: white;
+                .feedback-title {
+                    font-size: 10px;
+                    color: #172434;
+
+                }
+            }
+        }
     }
 }

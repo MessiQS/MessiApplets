@@ -52,7 +52,17 @@
         </view>
       </view>
       <view wx:if="{{isSelected}}" class='analysis'>
-        <text>{{questionPaper.analysis}}</text>
+        <view class='separator-line'></view>
+        <view class='analysis-title-view'>
+          <text class='analysis-title'>查看本题解析</text>
+        </view>
+        <view class='analysis-text-view'>
+          <text class='analysis-text'>{{questionPaper.analysis}}</text>
+        </view>
+        <view class='separator-line'></view>
+        <button class='feedback-button'>
+          报告内容有误
+        </button>
       </view>
     </scroll-view>
   </view>

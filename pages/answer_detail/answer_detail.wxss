@@ -64,5 +64,44 @@
             line-height: 25px; }
       .answer-container .section-bottom .answer-scroll .answer-selected {
         background-color: #F5F5F5; }
+    .answer-container .section-bottom .analysis {
+      justify-content: center;
+      align-items: center; }
+      .answer-container .section-bottom .analysis .separator-line {
+        margin-left: 20%;
+        margin-top: 16px;
+        height: 1px;
+        width: 60%;
+        background-color: #979797; }
+      .answer-container .section-bottom .analysis .analysis-title-view {
+        text-align: center;
+        margin-top: 6px; }
+        .answer-container .section-bottom .analysis .analysis-title-view .analysis-title {
+          font-size: 15px;
+          color: #FF5B29;
+          line-height: 20px; }
+      .answer-container .section-bottom .analysis .analysis-text-view {
+        margin-top: 35px;
+        margin-right: 44px;
+        margin-left: 44px;
+        margin-bottom: 84px; }
+        .answer-container .section-bottom .analysis .analysis-text-view .analysis-text {
+          font-size: 16px;
+          line-height: 20px; }
+      .answer-container .section-bottom .analysis .feedback-button {
+        width: 90px;
+        height: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.75);
+        margin-top: 10px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 10px;
+        color: #172434;
+        background-color: white; }
+        .answer-container .section-bottom .analysis .feedback-button .feedback-title {
+          font-size: 10px;
+          color: #172434; }
 
 /*# sourceMappingURL=answer_detail.wxss.map */
