@@ -23,7 +23,6 @@
                 margin-top: 17px;
                 text-align: left;
                 width: 100%;
-                background-color: white;
                 line-height: 25px;
             }
             .title-paper-detail {
@@ -36,7 +35,10 @@
 			top: 34px;
 			right: 18.8px;
 		}
-    }
+	}
+	.select-container-selected {
+		background-color: #F5F5F5;			
+	}
     .select-container::after {
         border: none;
         border-radius: 0;

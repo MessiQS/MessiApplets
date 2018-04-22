@@ -1,5 +1,5 @@
 <scroll-view class='home-container'>
-  <view class='select-container' bindtap = "bindViewTap">
+  <view class='select-container' bindtap = "bindViewTap" hover-class='select-container-selected' hover-stay-time='200'>
     <image class='green-block block' src='../../images/green_block.png'></image>
     <view class='title-container'>
       <text class='title-paper-name h2'>当前暂无题库信息</text>

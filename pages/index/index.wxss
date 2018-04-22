@@ -22,7 +22,6 @@
         margin-top: 17px;
         text-align: left;
         width: 100%;
-        background-color: white;
         line-height: 25px; }
       .home-container .select-container .title-container .title-paper-detail {
         margin-top: 5px;
@@ -31,6 +30,8 @@
       position: absolute;
       top: 34px;
       right: 18.8px; }
+  .home-container .select-container-selected {
+    background-color: #F5F5F5; }
   .home-container .select-container::after {
     border: none;
     border-radius: 0; }

@@ -116,6 +116,21 @@ Page({
     this._doneSelect();
   },
 
+  isMultipleChoiceQuestion() {
+
+    if (questionPaper.subject == "不定项") {
+      return true;
+    }
+    if (questionPaper.question.indexOf("不定项选择") !== -1) {
+      return true;
+    }
+    if (questionPaper.subject.indexOf("多选") !== -1) {
+      return true;
+    }
+    
+
+  },
+
   singleChoiceQuestion: function (option) {
 
     console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)

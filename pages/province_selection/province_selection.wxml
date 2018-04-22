@@ -8,12 +8,12 @@
   <swiper current="{{currentIndex}}" class='content' duration='200' bindchange="swiperChange">
     <swiper-item>
       <scroll-view scroll-y class='scroll'>
-        <view class="scroll-item" wx:for="{{list}}" wx:key="{{item.title}}">
+        <view class="scroll-item" wx:for="{{provinces}}" wx:key="{{item.title}}" bindtap='navigateToSelectPaperVC' data-item="{{item}}" hover-class='scroll-item-selected' hover-stay-time='200'>
           <text class="title">{{item.title}}</text>
-          <text class="number">{{item.length}}套真题</text>
+          <text class="number">{{item.data.length}}套真题</text>
+          <image class='arrow' mode='aspectFit' src='../../images/arrow.png'></image>
         </view>
       </scroll-view>
-
     </swiper-item>
     <swiper-item>
       <text>22</text>

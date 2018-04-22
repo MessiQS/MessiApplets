@@ -1,18 +1,35 @@
 // pages/paper_selection/paper_selection.js
+const questionManager = require('../../service/question_manager')
+const loginManager = require('../../service/login_manager')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    title: "",
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log("option", options.data)
+    var papers = JSON.parse(options.data)
+    var list = papers.data
+    var title = papers.title
+
+    this.setData({
+      list:list
+    })
+
+    wx.setNavigationBarTitle({
+      title: title
+    })
+
+    this.prepareData()
   },
 
   /**
@@ -62,5 +79,25 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  prepareData: function() {
+    
+  },
+
+  itemTap: function(e) {
+    var item = e.currentTarget.dataset.item
+    console.log("item tap", item)
+
+    questionManager.downloadPaper(item.id, function(success, response, error) {
+      if (success) {
+
+      }
+      
+    })
+
+    questionManager.getSpecialRecordByPaperId(item.id, function(success, response, error) {
+
+    })
   }
 })

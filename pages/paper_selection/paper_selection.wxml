@@ -1,2 +1,15 @@
 <!--pages/paper_selection/paper_selection.wxml-->
-<text>pages/paper_selection/paper_selection.wxml</text>
+<view class="container">
+  <view class="wrapper">
+    <view class="header-title-view">
+        <text class="header-title">{{list.length}}道真题</text>
+    </view>
+    <view class="separator-line"></view>
+    <view wx:for="{{list}}" wx:key="item" class="item" bindtap="itemTap" data-item="{{item}}">
+      <text class="item-title">{{item.title}}</text>
+      <view class="item-select-button">
+        <text class="item-select-title">选择</text>
+      </view>
+    </view>
+  </view>
+</view>

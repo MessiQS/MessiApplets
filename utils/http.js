@@ -1,5 +1,5 @@
 const basic = require('./basicurl.js')
-const token = "f5174bc39daf4912fd7b638b9201f0fc"
+const loginManager = require("../service/login_manager")
 const webUrl = basic.initUrl
 
 const post = (api, data, callback) => {
@@ -9,7 +9,7 @@ const post = (api, data, callback) => {
     method: 'POST',
     header: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: token,
+      Authorization: loginManager.token,
     },
     data,
     success: callback,
@@ -19,13 +19,15 @@ const post = (api, data, callback) => {
 }
 
 const get = (api, data, callback) => {
+
+  data.user_id = loginManager.user_id;
   let url = webUrl + api,
     params = {
       url,
       method: 'GET',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: token,
+        Authorization: loginManager.token,
       },
       data,
       success: callback,

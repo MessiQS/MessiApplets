@@ -1,5 +1,5 @@
 // pages/category_selection/category_selection.js
-const Http = require('../../utils/http.js')
+const { post, get } = require('../../utils/http.js')
 
 Page({
 
@@ -14,7 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     
   },
 
