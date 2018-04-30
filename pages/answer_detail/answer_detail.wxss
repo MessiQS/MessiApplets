@@ -17,11 +17,14 @@
           font-size: 16px;
           line-height: 25px; }
   .answer-container .separator {
+    position: absolute;
+    top: 50%;
     height: 1px;
     width: 100%;
     background-color: #979797; }
   .answer-container .section-bottom {
-    height: 50%; }
+    height: 50%;
+    width: 100%; }
     .answer-container .section-bottom .answer-scroll {
       flex-direction: column; }
       .answer-container .section-bottom .answer-scroll .answer-right-wrong {

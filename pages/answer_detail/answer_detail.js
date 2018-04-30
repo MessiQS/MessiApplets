@@ -5,6 +5,8 @@ const ItemStatus = {
   RIGHT: 'right',
   ERROR: 'error',
 };
+const questionManager = require("../../service/question_manager")
+
 Page({
   /**
    * 页面的初始数据
@@ -57,7 +59,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.model = questionManager.getNewRandomMemoryModel()
+    console.log("questionManager.getCurrentMemoryModels ", this.model);
+    this.setData({
+      questionPaper: this.model.question
+    })
   },
 
   /**
@@ -127,24 +133,20 @@ Page({
     if (questionPaper.subject.indexOf("多选") !== -1) {
       return true;
     }
-    
-
   },
 
   singleChoiceQuestion: function (option) {
 
     console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)
 
+    questionManager.select(option, this.model)
 
     var isRight = option == this.data.questionPaper.answer ? true : false;
 
     let itemStatus = ItemStatus.NORMAL;
     if (isRight) {
-
       itemStatus = ItemStatus.RIGHT;
-
     } else {
-      
       itemStatus = ItemStatus.ERROR;
     }
 
@@ -230,6 +232,6 @@ Page({
   },
 
   renderAnswerTopView: function () {
-    
-  },
+
+  }
 })

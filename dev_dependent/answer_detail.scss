@@ -21,12 +21,15 @@
         }
     }
     .separator {
+        position: absolute;
+        top: 50%;
         height: 1px;
         width: 100%;
         background-color: #979797;
     }
     .section-bottom {
         height: 50%;
+        width: 100%;
         .answer-scroll {
             flex-direction: column;
 
