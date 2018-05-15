@@ -1,14 +1,17 @@
 <scroll-view class='home-container'>
-  <view class='select-container' bindtap = "bindViewTap" hover-class='select-container-selected' hover-stay-time='200'>
+  <view class='select-container' bindtap = "navigateToPaper" hover-class='select-container-selected' hover-stay-time='200'>
     <image class='green-block block' src='../../images/green_block.png'></image>
     <view class='title-container'>
       <text class='title-paper-name h2'>当前暂无题库信息</text>
       <text class='title-paper-detail p'>历年真题</text>
     </view>
+    <view class="circle-chart">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ pie }}"></ec-canvas>      
+    </view>
     <image class='arrow arrow-0' mode='aspectFit' src='../../images/arrow.png'></image>
   </view>
   <view class='section'>
-    <view class='section-top' bindtap='navigateToAnswerDetail' hover-class='section-top-selected' hover-stay-time='200'>
+    <view class='section-top' bindtap='goToNewQestionButtonClick' hover-class='section-top-selected' hover-stay-time='200'>
       <image class='section-block block' src='../../images/blue_block.png'></image>
       <text class='h4 section-top-title'>过去5日刷题数量统计</text>
       <text class='section-top-right-title blue'>刷新题</text>
@@ -19,6 +22,9 @@
       <text class='last-date'>最后刷题日：</text>
       <text class='average'>平均値：</text>
       <text class='right-detail'>剩余：</text>
+    </view>
+    <view class="echart-line-view">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
     </view>
   </view>
   <view class='section'>
@@ -33,6 +39,9 @@
       <text class='last-date'>最后刷题日：</text>
       <text class='average'>平均値：</text>
       <text class='right-detail'>剩余：</text>
+    </view>
+    <view class="echart-line-view">
+      <ec-canvas id="mychart-dom-line-2" canvas-id="mychart-line-2" ec="{{ ec2 }}"></ec-canvas>
     </view>
   </view>
 </scroll-view>

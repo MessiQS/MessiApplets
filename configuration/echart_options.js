@@ -107,7 +107,7 @@ const rememberPaper = {
         type: 'category',
         boundaryGap: false,
         axisLine: {
-          show: false,
+          show: false
         },
         axisTick: {
           show: false
@@ -120,14 +120,10 @@ const rememberPaper = {
     ],
     yAxis: [
       {
-        axisLabel: {
-          show: false,
-          inside: true
-        },
         minInterval: 1,
         type: 'value',
         axisLine: {
-          show: false,
+          show: false
         },
         axisTick: {
           show: false
@@ -135,6 +131,10 @@ const rememberPaper = {
         nameTextStyle: {
           color: "#8E9091",
           fontSize: 14
+        },
+        axisLabel: {
+          show: false,
+          inside: true
         },
         splitLine: {
           show: true,
@@ -145,30 +145,16 @@ const rememberPaper = {
         },
       }
     ],
-    dataZoom: [
-      {
-        show: false,
-      },
-    ],
-    legend: {
-      borderWidth: 0,
-      borderColor: "#FFF"
-    },
     series: [
       {
         type: 'line',
+        stack: '总量',
         itemStyle: {
           normal: {
             color: '#FF5B29',
             lineStyle: {
               color: '#FF5B29'
             }
-          },
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'top'
           }
         },
         smooth: false,
@@ -190,6 +176,13 @@ const rememberPaper = {
             }
           }
         },
+        label: {
+          normal: {
+            show: true,
+            position: 'top'
+          }
+        },
+        data: [0, 15, 40, 30, 80, 50]
       }
     ]
   }
@@ -228,6 +221,7 @@ const pieOption = {
             show: false
           }
         },
+        data: [10, 15, 40]        
       }
     ]
   }
@@ -235,5 +229,5 @@ const pieOption = {
 module.exports = {
   newPaper,
   pieOption,
-  pieOption
+  rememberPaper
 }

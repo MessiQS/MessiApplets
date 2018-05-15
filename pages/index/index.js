@@ -2,6 +2,42 @@
 //获取应用实例
 const app = getApp();
 var loginManager = require("../../service/login_manager.js");
+const questionMananger = require("../../service/question_manager.js")
+import { newPaper, pieOption, rememberPaper } from '.././../configuration/echart_options.js';
+import * as echarts from '../../vendor/ec-canvas/echarts';
+
+function initChart(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+  chart.setOption(newPaper.option);
+
+  return chart;
+}
+
+function initChart2(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+  chart.setOption(rememberPaper.option);
+
+  return chart;
+}
+
+function initPie(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+  chart.setOption(pieOption.option);
+
+  return chart;
+}
 
 Page({
   data: {
@@ -9,7 +45,16 @@ Page({
     lola: 'nihao',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    ec: {
+      onInit: initChart
+    },
+    ec2: {
+      onInit: initChart2
+    },
+    pie: {
+      onInit: initPie
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -23,6 +68,9 @@ Page({
    */
   onShow: function () {
 
+
+    let chartInfo = questionMananger.getChartInfo()
+    console.log("chartInfo", chartInfo)
   },
 
   /**
@@ -62,14 +110,22 @@ Page({
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
-      url: '../category_selection/category_selection'
+      url: '../logs/logs'
     })
   },
   //去选题
   navigateToPaper: function () {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../category_selection/category_selection'
     })
+  },
+  goToNewQestionButtonClick: function() {
+
+    if (questionMananger.hasQuestions()) {
+      this.navigateToAnswerDetail()
+    } else {
+      this.navigateToPaper()
+    }
   },
   /// 去答题
   navigateToAnswerDetail: function () {

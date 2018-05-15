@@ -39,6 +39,13 @@ Page({
     D_Status: ItemStatus.NORMAL,
     showImageDetail: false,
     selectedIsRight: false,
+    isMultipleChoiceQuestion: false,
+    y: 400,
+    question_contents: [],
+    option_A_contents: [],
+    option_B_contents: [],
+    option_C_contents: [],
+    option_D_contents: [],
   },
 
   /**
@@ -59,11 +66,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.model = questionManager.getNewRandomMemoryModel()
-    console.log("questionManager.getCurrentMemoryModels ", this.model);
-    this.setData({
-      questionPaper: this.model.question
-    })
+    
+    this.nextQuestion();
   },
 
   /**
@@ -107,32 +111,34 @@ Page({
 
     var questionPaper = this.data.questionPaper;
     var option = event.currentTarget.dataset.option;
+
     /// 如果是多选题
-    if (questionPaper.subject == "不定项" ||
-      questionPaper.question.indexOf("不定项选择") !== -1 ||
-      questionPaper.subject.indexOf("多选") !== -1) {
+    if (this.isMultipleChoiceQuestion(questionPaper)) {
 
       this.multipleChoiceQuestions(option)
-      this._doneSelect()
       return;
     }
 
     this.singleChoiceQuestion(option)
-    /// 如果是多选
-    this._doneSelect();
   },
 
-  isMultipleChoiceQuestion() {
-
+  isMultipleChoiceQuestion: function(questionPaper) {
+    
     if (questionPaper.subject == "不定项") {
-      return true;
+      return true
     }
     if (questionPaper.question.indexOf("不定项选择") !== -1) {
-      return true;
+      return true
     }
     if (questionPaper.subject.indexOf("多选") !== -1) {
-      return true;
+      return true
     }
+
+    let splitedArray = questionPaper.answer.split(",")
+    if (splitedArray.length > 1) {
+      return true
+    }
+    return false;
   },
 
   singleChoiceQuestion: function (option) {
@@ -155,7 +161,8 @@ Page({
         isSelected: true,
         selectedOption: [option],
         A_Status: itemStatus,
-        selectedIsRight: isRight
+        selectedIsRight: isRight,
+        y:0,        
       })
     }
     if (option == "B") {
@@ -163,7 +170,8 @@ Page({
         isSelected: true,
         selectedOption: [option],
         B_Status: itemStatus,
-        selectedIsRight: isRight
+        selectedIsRight: isRight,
+        y:0,
       })
     }
     if (option == "C") {
@@ -171,7 +179,8 @@ Page({
         isSelected: true,
         selectedOption: [option],
         C_Status: itemStatus,
-        selectedIsRight: isRight
+        selectedIsRight: isRight,
+        y:0,        
       })
     }
     if (option == "D") {
@@ -179,25 +188,24 @@ Page({
         isSelected: true,
         selectedOption: [option],
         D_Status: itemStatus,
-        selectedIsRight: isRight
+        selectedIsRight: isRight,
+        y:0,        
       })
     }
   },
 
   multipleChoiceQuestions: function (option) {
 
-    const array = this.state.selectedOption;
-
+    const array = this.data.selectedOption;
     let itemStatus = null;
 
-    if (this.state.selectedOption.includes(option)) {
+    if (this.data.selectedOption.includes(option)) {
       array.splice(array, 1);
       itemStatus = ItemStatus.NORMAL;
     } else {
       array.push(option);
       itemStatus = ItemStatus.SELECTED;
     }
-
     if (option == "A") {
       this.setData({
         selectedOption: array,
@@ -224,14 +232,44 @@ Page({
     }
   },
 
-  _doneSelect: function () {
+  doneSelect: function () {
 
     this.setData({
+      y:0,
       isSelected: true
     });
   },
 
   renderAnswerTopView: function () {
 
-  }
+  },
+
+  nextQuestionButtonClick: function() {
+    this.nextQuestion();
+  },
+
+  nextQuestion: function() {
+    this.model = questionManager.getNewRandomMemoryModel()
+    console.log("questionManager.getCurrentMemoryModels ", this.model);
+    var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
+    var contents = questionManager.renderQuestion(this.model.question.question);
+    console.log("isMultipleChoiceQuestion", isMultipleChoiceQuestion);
+
+    var option_A_contents = questionManager.renderAnswer(this.model.question.option_A)
+    var option_B_contents = questionManager.renderAnswer(this.model.question.option_B)
+    var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
+    var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
+
+    this.setData({
+      questionPaper: this.model.question,
+      isMultipleChoiceQuestion: isMultipleChoiceQuestion,
+      question_contents: contents,
+      isSelected: false,
+      y:400,
+      option_A_contents,
+      option_B_contents,
+      option_C_contents,
+      option_D_contents,
+    })
+  },
 })

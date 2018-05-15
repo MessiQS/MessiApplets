@@ -17,6 +17,9 @@
                     font-size: 16px;
                     line-height: 25px,
                 }
+                .question-image {
+                    position: relative;
+                }
             }
         }
     }
@@ -32,33 +35,55 @@
         width: 100%;
         .answer-scroll {
             flex-direction: column;
-
             .answer-right-wrong {
+                position: relative;
                 height: 40px;
                 .answer-right-text {
-                    margin-left: 28px;
-                    margin-top: 18px;
+                    position: absolute;
+                    left: 28px;
+                    top: 12px;
                     font-size: 13px;
                     color: #8FDA3C;
                 }
                 .answer-wrong-text {
-                    margin-left: 28px;
-                    margin-top: 18px;
+                    position: absolute;
+                    left: 28px;
+                    top: 12px;
                     font-size: 13px;
                     color: #FF5B29;
                 }
+                .multiple-done-button {
+                    position: absolute;
+                    right: 29px;
+                    top: 10px;
+                    width: 55px;
+                    height: 20px;
+                    border:1px solid rgba(20,149,235,1);
+                    border-radius: 3px;
+                    .multiple-done-text {
+                        position: relative;
+                        float: left;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 12px;
+                        color: #1495EB;
+                    }
+                }
             }
             .answer {
-                height: 50px;
+                width: 100%;
+                min-height: 50px;
                 .left-tab-container {
                     float: left;
                     position: relative;
                     flex-direction: column;
-                    background-color: bisque;
                     width: 43px;
-                    height: 43px;
+                    min-height: 50px;
                     padding: auto;
+                    display: table;
                     .left-tab-icon {
+                        display:table-cell;                                        
                         width: 23px;
                         height: 23px;
                         position: absolute;
@@ -67,20 +92,28 @@
                         left: 0;
                         right: 0;
                         margin: auto;
+                        vertical-align: middle;                        
                     }
                 }
                 .right-tab-container {
                     overflow: hidden;
+                    position: relative;
+                    display: table;
+                    flex-direction: row;                    
+                    min-height: 50px;
                     .right-tab-answer-title {
-                        display: inline;
+                        display:table-cell;
                         font-size: 18px;
                         line-height: 25px;
+                        vertical-align: middle;
+                    }
+                    .right-tab-answer-image {
+                        max-height: 50px;
                     }
                 }
             }
             .answer-selected {
                 background-color: #F5F5F5;
-                
             }
         }
         .analysis {
@@ -135,4 +168,36 @@
             }
         }
     }
+    .pop-up-area {
+
+        height: 200px;
+        width: 100px;
+        .pop-up-view {
+    
+            position: fixed;
+            top: 90%;
+            width: 100%;
+            height: 10%;
+            background-color: rebeccapurple;
+            z-index: 99;
+            .next-question-button {
+                margin-top: 10px;
+                width: 90px;
+                height: 24px;
+                border:1px solid rgba(0,0,0,.75);
+                margin-left: auto;
+                margin-right: 10px;
+                text-align: center;
+                .next-question-text {
+                    font-size: 10px;
+                    color: #172434;
+                }
+            }
+        }
+    }
 }
+
+.button-selected {
+
+    background-color: #F5F5F5;    
+} 
