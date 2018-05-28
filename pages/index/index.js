@@ -3,6 +3,8 @@
 const app = getApp();
 var loginManager = require("../../service/login_manager.js");
 const questionMananger = require("../../service/question_manager.js")
+const paperManager = require("../../service/paper_manager")
+
 import { newPaper, pieOption, rememberPaper } from '.././../configuration/echart_options.js';
 import * as echarts from '../../vendor/ec-canvas/echarts';
 
@@ -11,6 +13,14 @@ function initChart(canvas, width, height) {
     width: width,
     height: height
   });
+  let chartInfo = questionMananger.getChartInfo()
+  let weekday = questionMananger.getChartBeforeWeekday()
+  
+  newPaper.option.series[0].data = chartInfo.beforeArray.map ((value) => {
+    return value.length
+  })
+  newPaper.option.xAxis[0].data = weekday
+
   canvas.setChart(chart);
   chart.setOption(newPaper.option);
 
@@ -22,6 +32,12 @@ function initChart2(canvas, width, height) {
     width: width,
     height: height
   });
+  let chartInfo = questionMananger.getChartInfo()
+  let weekday = questionMananger.getChartFutureWeekday()
+
+  rememberPaper.option.series[0].data = chartInfo.futureArray
+  rememberPaper.option.xAxis[0].data = weekday
+  
   canvas.setChart(chart);
   chart.setOption(rememberPaper.option);
 
@@ -33,6 +49,10 @@ function initPie(canvas, width, height) {
     width: width,
     height: height
   });
+  let chartInfo = questionMananger.getChartInfo()
+
+  pieOption.option.series[0].data = chartInfo.pieArray
+  
   canvas.setChart(chart);
   chart.setOption(pieOption.option);
 
@@ -54,7 +74,10 @@ Page({
     },
     pie: {
       onInit: initPie
-    }
+    },
+    chartInfo:{},
+    title: "当前暂无题库信息"
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -68,8 +91,13 @@ Page({
    */
   onShow: function () {
 
-
     let chartInfo = questionMananger.getChartInfo()
+    let paper = paperManager.getCurrentPaperItem()
+    this.setData({
+      chartInfo,
+      title: paper.title
+    })
+
     console.log("chartInfo", chartInfo)
   },
 
@@ -116,19 +144,21 @@ Page({
   //去选题
   navigateToPaper: function () {
     wx.navigateTo({
-      url: '../category_selection/category_selection'
+      url: '../main_category_selection/main_category_selection'
     })
   },
-  goToNewQestionButtonClick: function() {
+  goAnswerButtonClick: function(e) {
 
+    console.log("goAnswerButtonClick", e)
     if (questionMananger.hasQuestions()) {
       this.navigateToAnswerDetail()
     } else {
-      this.navigateToPaper()
+      this.navigateToPaper(e)
     }
   },
   /// 去答题
-  navigateToAnswerDetail: function () {
+  navigateToAnswerDetail: function (e) {
+    console.log("navigateToAnswerDetail", e)
     wx.navigateTo({
       url: '../answer_detail/answer_detail'
     })

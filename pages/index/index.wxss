@@ -14,17 +14,23 @@
       left: 10px;
       top: 31.5px; }
     .home-container .select-container .title-container {
+      position: relative;
       margin-left: 35px;
       width: 70%;
       height: 78px; }
       .home-container .select-container .title-container .title-paper-name {
-        display: inline-block;
-        margin-top: 17px;
+        position: absolute;
+        top: 17px;
         text-align: left;
-        width: 100%;
-        line-height: 25px; }
+        width: 80%;
+        line-height: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block; }
       .home-container .select-container .title-container .title-paper-detail {
-        margin-top: 5px;
+        position: absolute;
+        top: 48px;
         line-height: 20px; }
     .home-container .select-container .circle-chart {
       position: absolute;

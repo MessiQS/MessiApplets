@@ -106,7 +106,10 @@
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
           </view>
           <view class='right-tab-container'>
-            <text class='right-tab-answer-title'>{{questionPaper.option_B}}</text>
+            <block wx:for="{{option_B_contents}}" wx:key="unique">
+              <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+              <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+            </block>
           </view>
         </view>
 
@@ -115,7 +118,10 @@
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
           </view>
           <view class='right-tab-container'>
-            <text class='right-tab-answer-title'>{{questionPaper.option_C}}</text>
+            <block wx:for="{{option_C_contents}}" wx:key="unique">
+              <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+              <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+            </block>
           </view>
         </view>
 
@@ -124,7 +130,10 @@
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
           </view>
           <view class='right-tab-container'>
-            <text class='right-tab-answer-title'>{{questionPaper.option_D}}</text>
+            <block wx:for="{{option_D_contents}}" wx:key="unique">
+              <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+              <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+            </block>
           </view>
         </view>
       </block>
