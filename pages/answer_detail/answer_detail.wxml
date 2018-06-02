@@ -28,6 +28,7 @@
           </view>
 
           <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
             </view>
@@ -37,9 +38,11 @@
                 <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
               </block>
             </view>
+            </view>
           </view>
 
           <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'/>
             </view>
@@ -49,9 +52,11 @@
                 <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
               </block>
             </view>
+            </view>
           </view>
 
           <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
             </view>
@@ -61,9 +66,11 @@
                 <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
               </block>
             </view>
+            </view>
           </view>
 
           <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
             </view>
@@ -73,6 +80,7 @@
                 <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
               </block>
             </view>
+          </view>
           </view>
         </block>
 
@@ -91,6 +99,7 @@
           </view>
 
           <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
             </view>
@@ -101,8 +110,9 @@
               </block>
             </view>
           </view>
-
+</view>
           <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
             </view>
@@ -113,8 +123,10 @@
               </block>
             </view>
           </view>
-
+</view>
           <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
+           <view hover-stop-propagation="{{isSelected}}">
+
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
             </view>
@@ -125,8 +137,9 @@
               </block>
             </view>
           </view>
-
+</view>
           <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
+           <view hover-stop-propagation="{{isSelected}}">
             <view class='left-tab-container'>
               <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
             </view>
@@ -136,6 +149,7 @@
                 <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
               </block>
             </view>
+          </view>
           </view>
         </block>
         <!-- 错题解析 -->

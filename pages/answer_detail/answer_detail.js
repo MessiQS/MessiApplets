@@ -67,7 +67,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
     this.nextQuestion();
   },
 
@@ -108,6 +108,10 @@ Page({
 
   answerClick: function (event) {
 
+    if (this.data.isSelected == true) {
+      return
+    }
+
     console.log("event", event);
 
     var questionPaper = this.data.questionPaper;
@@ -123,8 +127,8 @@ Page({
     this.singleChoiceQuestion(option)
   },
 
-  isMultipleChoiceQuestion: function(questionPaper) {
-    
+  isMultipleChoiceQuestion: function (questionPaper) {
+
     if (questionPaper.subject == "不定项") {
       return true
     }
@@ -143,6 +147,10 @@ Page({
   },
 
   singleChoiceQuestion: function (option) {
+
+    if (this.data.isSelected == true) {
+      return
+    }
 
     console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)
 
@@ -163,7 +171,7 @@ Page({
         selectedOption: [option],
         A_Status: itemStatus,
         selectedIsRight: isRight,
-        y:0,        
+        y: 0,
       })
     }
     if (option == "B") {
@@ -172,7 +180,7 @@ Page({
         selectedOption: [option],
         B_Status: itemStatus,
         selectedIsRight: isRight,
-        y:0,
+        y: 0,
       })
     }
     if (option == "C") {
@@ -181,7 +189,7 @@ Page({
         selectedOption: [option],
         C_Status: itemStatus,
         selectedIsRight: isRight,
-        y:0,        
+        y: 0,
       })
     }
     if (option == "D") {
@@ -190,12 +198,16 @@ Page({
         selectedOption: [option],
         D_Status: itemStatus,
         selectedIsRight: isRight,
-        y:0,        
+        y: 0,
       })
     }
   },
 
   multipleChoiceQuestions: function (option) {
+
+    if (this.data.isSelected == true) {
+      return
+    }
 
     const array = this.data.selectedOption;
     let itemStatus = null;
@@ -235,8 +247,11 @@ Page({
 
   doneSelect: function () {
 
+    if (this.data.isSelected == true) {
+      return
+    }
     this.setData({
-      y:0,
+      y: 0,
       isSelected: true
     });
   },
@@ -245,11 +260,11 @@ Page({
 
   },
 
-  nextQuestionButtonClick: function() {
+  nextQuestionButtonClick: function () {
     this.nextQuestion();
   },
 
-  nextQuestion: function() {
+  nextQuestion: function () {
     this.model = questionManager.getNewRandomMemoryModel()
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
@@ -266,7 +281,7 @@ Page({
       isMultipleChoiceQuestion: isMultipleChoiceQuestion,
       question_contents: contents,
       isSelected: false,
-      y:400,
+      y: 400,
       option_A_contents,
       option_B_contents,
       option_C_contents,
@@ -275,17 +290,17 @@ Page({
     })
   },
 
-  feedbackButtonClick: function() {
+  feedbackButtonClick: function () {
 
     const that = this
-    
+
     wx.showModal({
       title: '错题反馈',
       content: '请确认该题是否内容有误',
-      success: function(res) {
+      success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
-          questionManager.feedbackQuestion(that.model, function(success, response, error) {
+          questionManager.feedbackQuestion(that.model, function (success, response, error) {
 
             if (success) {
               console.log("success, response, error", success, response, error)
@@ -300,5 +315,5 @@ Page({
         }
       }
     })
-  }
+  },
 })
