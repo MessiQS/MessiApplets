@@ -137,7 +137,7 @@
           </view>
         </view>
       </block>
-
+      <!-- 错题解析 -->
       <view wx:if="{{isSelected}}" class='analysis'>
         <view class='separator-line'></view>
         <view class='analysis-title-view'>
@@ -147,7 +147,7 @@
           <text class='analysis-text'>{{questionPaper.analysis}}</text>
         </view>
         <view class='separator-line'></view>
-        <button class='feedback-button'>
+        <button type="default" class='feedback-button' bindtap="feedbackButtonClick" hover-class='button-selected' hover-stay-time='200'>
           报告内容有误
         </button>
       </view>

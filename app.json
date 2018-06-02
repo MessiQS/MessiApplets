@@ -12,8 +12,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#0076ff",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "刷题",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   }
 }

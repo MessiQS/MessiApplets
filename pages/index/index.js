@@ -61,8 +61,6 @@ function initPie(canvas, width, height) {
 
 Page({
   data: {
-    motto: 'Hello World',
-    lola: 'nihao',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -93,9 +91,14 @@ Page({
 
     let chartInfo = questionMananger.getChartInfo()
     let paper = paperManager.getCurrentPaperItem()
+    let title =  "当前暂无题库信息"
+
+    if (paper.title != null && paper.title.length != 0) {
+      title = paper.title
+    }
     this.setData({
       chartInfo,
-      title: paper.title
+      title,
     })
 
     console.log("chartInfo", chartInfo)

@@ -272,4 +272,15 @@ Page({
       option_D_contents,
     })
   },
+
+  feedbackButtonClick: function() {
+
+    const that = this
+    questionManager.feedbackQuestion(this.model, function(success, response, error) {
+
+      if (success) {
+        console.log("success, response, error", success, response, error)
+      }
+    })
+  }
 })
