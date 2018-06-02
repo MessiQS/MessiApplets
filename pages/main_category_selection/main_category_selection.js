@@ -98,7 +98,7 @@ Page({
   cagegoryButtonClick: function(e) {
 
     let content = e.currentTarget.dataset.item
-    console.log("content", content)
+    //console.log("content", content)
     let json = JSON.stringify(content)
 
     wx.navigateTo({

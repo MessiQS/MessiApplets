@@ -80,9 +80,9 @@ Page({
 
   secondaryCagegoryButtonClick: function(e) {
 
-    console.log("secondaryCagegoryButtonClick", e)
+    //console.log("secondaryCagegoryButtonClick", e)
     let item = e.currentTarget.dataset.item
-    console.log("item", item)
+    //console.log("item", item)
 
     wx.navigateTo({
       url: '../final_category/final_category?sendType=' + this.data.title + "&province=" + item

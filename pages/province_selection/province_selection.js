@@ -40,7 +40,7 @@ Page({
     //     title:res.title,
     //     length:res.data.length
     //   }))
-    //   console.log(list)
+    //   //console.log(list)
     //   _this.setData({
     //     list
     //   })
@@ -100,7 +100,7 @@ Page({
    */
   prepareData: function() {
 
-    console.log("loginManager", loginManager.token)
+    //console.log("loginManager", loginManager.token)
     var that = this
     questionManager.getPublicOfficialsInfo(function(success, response, error) {
 
@@ -111,9 +111,9 @@ Page({
   }, 
   navigateToSelectPaperVC: function(item) {
 
-    console.log("item", item)
+    //console.log("item", item)
     var data = item.currentTarget.dataset.item
-    console.log("data", data)
+    //console.log("data", data)
     wx.navigateTo({
       url: '../paper_selection/paper_selection?data=' + JSON.stringify(data)
     })

@@ -18,7 +18,7 @@ NetWorkManager.prototype.post = function (api, paramObj, hasToken) {
       'content-type': 'application/json' // 默认值
     },
     success: function (res) {
-      console.log(res.data)
+      //console.log(res.data)
     }
   })
 }

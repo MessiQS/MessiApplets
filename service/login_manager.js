@@ -24,7 +24,7 @@ class LoginManager {
             },
             success: function (res) {
               if (res.data.type === true) {
-                console.log(webUrl + "/api/wxlogin", "res success")
+                //console.log(webUrl + "/api/wxlogin", "res success")
                 try {
                   
                   wx.setStorageSync('user_id', res.data.data.user_id);
@@ -33,7 +33,7 @@ class LoginManager {
                   that.token = res.data.data.token;
                   that.user_id = res.data.data.user_id
 
-                  console.log("token", that.token, "user_id", that.user_id)
+                  //console.log("token", that.token, "user_id", that.user_id)
 
                 } catch (e) {
                   
@@ -42,7 +42,7 @@ class LoginManager {
             }
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          //console.log('登录失败！' + res.errMsg)
         }
       }
     });

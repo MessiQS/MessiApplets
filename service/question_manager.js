@@ -33,7 +33,7 @@ class QuestionManager {
     getPublicOfficialsInfo(callback) {
 
         HTTP.get("/api/papertype", {}, function (res) {
-            console.log("api/papertype", res.data)
+            //console.log("api/papertype", res.data)
             callback(res.data.type, res.data.data, null)
         })
     }
@@ -43,7 +43,7 @@ class QuestionManager {
         HTTP.get("/api/getQuestionInfoByPaperid", {
             paper_id
         }, function (res) {
-            console.log("api/getQuestionInfoByPaperid", res)
+            //console.log("api/getQuestionInfoByPaperid", res)
             callback(res.data.type, res.data.data, null)
         })
     }
@@ -54,7 +54,7 @@ class QuestionManager {
         HTTP.get("/api/getpaper", {
             paperId
         }, function (res) {
-            console.log("api/getpaper", res)
+            //console.log("api/getpaper", res)
             that.currentExams = res.data.data
             callback(res.data.type, res.data.data, null)
         })
@@ -62,7 +62,7 @@ class QuestionManager {
 
     setCurrentMemoryModels(newValue) {
 
-        console.log("setCurrentMemoryModels newValue", newValue)
+        //console.log("setCurrentMemoryModels newValue", newValue)
         const that = this
 
         /// 过滤 </br> 标签
@@ -100,7 +100,7 @@ class QuestionManager {
         } catch (e) {
             // Do something when catch error
         }
-        console.log("getCurrentMemoryModels ", value)
+        //console.log("getCurrentMemoryModels ", value)
 
         return models
     }
@@ -109,7 +109,7 @@ class QuestionManager {
         var newModels = this.getCurrentMemoryModels().filter(value => value.appearedServeralTime == 0)
         this.currentMemoryModelsIndex = Math.floor(Math.random() * newModels.length)
         var model = newModels[this.currentMemoryModelsIndex]
-        console.log("getNewRandomMemoryModel ", model)
+        //console.log("getNewRandomMemoryModel ", model)
         return model
     }
 
@@ -117,7 +117,7 @@ class QuestionManager {
 
         var score = 0
         var isRight = false
-        console.log("memory model", memoryModel)
+        //console.log("memory model", memoryModel)
         if (option == memoryModel.question.answer) {
 
             score = 7 - memoryModel.appearedServeralTime
@@ -137,7 +137,7 @@ class QuestionManager {
         memoryModel.lastBySelectedTime = time.getTime()
         memoryModel.records.push(record)
 
-        console.log("memoryModel", memoryModel)
+        //console.log("memoryModel", memoryModel)
 
         // this.currentExams[this.currentMemoryModelsIndex] = memoryModel
         var currentModels = this.getCurrentMemoryModels()
@@ -243,7 +243,7 @@ class QuestionManager {
             return item
         })
 
-        console.log("newArray", newArray)
+        //console.log("newArray", newArray)
         return newArray
     }
 
@@ -264,7 +264,7 @@ class QuestionManager {
             return item
         })
 
-        console.log("item", items)
+        //console.log("item", items)
         return items
     }
 
@@ -406,7 +406,7 @@ class QuestionManager {
 
         object.newAverage = Math.round(wrongAvg)
 
-        console.log("wrongAvg", wrongAvg, " wrongSum", wrongSum, " newAverage", object.newAverage, " beforeArray", beforeArray)
+        //console.log("wrongAvg", wrongAvg, " wrongSum", wrongSum, " newAverage", object.newAverage, " beforeArray", beforeArray)
 
 
         var newSum = futureArray.reduce(function (a, b) { return a + b })
@@ -513,7 +513,7 @@ class QuestionManager {
     }
 
     feedbackQuestion(model, callback) {
-        console.log("feedback ", model)
+        //console.log("feedback ", model)
         let params = {
             title: model.question.title,
             id:model.question.id,
@@ -522,7 +522,7 @@ class QuestionManager {
         }
 
         HTTP.post("/api/wrongFeedBack", params, function (res) {
-            console.log("api/wrongFeedBack", res)
+            //console.log("api/wrongFeedBack", res)
             callback(res.data.type, res.data.data, null)
         })
     }
