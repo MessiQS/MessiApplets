@@ -5,27 +5,28 @@
   width: 100%; }
   .container .section {
     flex-direction: row;
-    margin-top: 15px;
+    margin-top: 10px;
     height: auto;
     background-color: #ffffff;
-    padding-bottom: 10px;
+    padding-bottom: 16px;
     padding-top: 10px; }
     .container .section .title {
       margin: 7px 0 20px 20px;
       color: #FF5B29;
       font-size: 16px;
-      text-decoration-line: underline; }
+      border-bottom: 1px solid #FF5B29;
+      padding-bottom: 0.25px; }
     .container .section .subtitle-container {
       height: auto;
-      margin: 10px 0 20px 20px;
+      margin: 10px 0 0px 15px;
       display: table; }
       .container .section .subtitle-container .subtitle-container {
         width: auto;
         display: table-cell; }
         .container .section .subtitle-container .subtitle-container .subtitle {
+          padding: 5px;
           color: black;
-          font-size: 16px;
-          margin-right: 19px; }
+          font-size: 16px; }
   .container .button-highlight {
     background-color: #F5F5F5; }
 

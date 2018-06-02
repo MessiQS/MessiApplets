@@ -5,45 +5,53 @@
   width: 100%;
   background-color: #F6F6F6; }
   .container .section {
-    position: relative;
-    flex-direction: row;
-    height: 36px;
-    background-color: #ffffff; }
-    .container .section .section-title {
-      float: left;
+    background-color: white;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    .container .section .cell {
+      position: relative;
+      flex-direction: row;
       height: 36px;
-      font-size: 16px;
-      line-height: 36px;
-      margin-left: 20px;
-      width: 70%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: block; }
-    .container .section .choose-button {
-      position: absolute;
-      border-radius: 4px;
-      border: 1px solid #FF5B29;
-      width: 50px;
-      height: 25px;
-      right: 10px;
-      top: 6px;
-      text-align: center; }
-      .container .section .choose-button .choose-button-title {
-        color: #FF5B29;
-        font-size: 12px; }
-    .container .section .choose-button-selected {
-      position: absolute;
-      border-radius: 4px;
-      border: 1px solid #DDDDDD;
-      width: 50px;
-      height: 25px;
-      right: 10px;
-      top: 6px;
-      text-align: center; }
-      .container .section .choose-button-selected .choose-button-title-selected {
-        color: #DDDDDD;
-        font-size: 12px; }
+      background-color: #ffffff; }
+      .container .section .cell .cell-title {
+        float: left;
+        height: 36px;
+        font-size: 16px;
+        line-height: 36px;
+        margin-left: 20px;
+        width: 70%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block; }
+      .container .section .cell .choose-button {
+        position: absolute;
+        border-radius: 4px;
+        border: 1px solid #FF5B29;
+        width: 50px;
+        height: 25px;
+        right: 10px;
+        top: 6px;
+        text-align: center; }
+        .container .section .cell .choose-button .choose-button-title {
+          color: #FF5B29;
+          font-size: 12px;
+          margin: 0 auto;
+          width: 50px;
+          margin-bottom: 2px; }
+      .container .section .cell .choose-button-selected {
+        position: absolute;
+        border-radius: 4px;
+        border: 1px solid #DDDDDD;
+        width: 50px;
+        height: 25px;
+        right: 10px;
+        top: 6px;
+        text-align: center; }
+        .container .section .cell .choose-button-selected .choose-button-title-selected {
+          color: #DDDDDD;
+          font-size: 12px; }
   .container .button-highlight {
     background-color: #F5F5F5; }
 

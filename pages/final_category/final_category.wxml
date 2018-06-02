@@ -1,17 +1,19 @@
 <view class="container">
-    <block wx:for="{{items}}" wx:key="unique" wx:for-item="item">
-        <view class="section">
-            <text class="section-title">《{{item.title}}》</text>
-            <block wx:if="{{item.paper_id == selected_paper_id}}">
-                <view class="choose-button-selected">
-                    <text class="choose-button-title-selected">已选择</text>
-                </view>
-            </block>
-            <block wx:else>
-                <view class="choose-button" bindtap="chooseExam" hover-class='button-highlight' hover-stay-time='200' data-item="{{item}}">
-                    <text class="choose-button-title">选择</text>
-                </view>
-            </block>
-        </view>
-    </block>
+    <view class="section">
+        <block wx:for="{{items}}" wx:key="unique" wx:for-item="item">
+            <view class="cell">
+                <text class="cell-title">《{{item.title}}》</text>
+                <block wx:if="{{item.paper_id == selected_paper_id}}">
+                    <view class="choose-button-selected">
+                        <text class="choose-button-title-selected">已选择</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="choose-button" bindtap="chooseExam" hover-class='button-highlight' hover-stay-time='200' data-item="{{item}}">
+                        <text class="choose-button-title">选择</text>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
 </view>

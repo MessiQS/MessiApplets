@@ -5,28 +5,29 @@
     width: 100%;
     .section {
         flex-direction: row;
-        margin-top: 15px;
+        margin-top: 10px;
         height: auto;
         background-color: #ffffff;
-        padding-bottom: 10px;
+        padding-bottom: 16px;
         padding-top: 10px;
         .title {
             margin: 7px 0 20px 20px;
             color: #FF5B29;
             font-size: 16px;
-            text-decoration-line: underline;
+            border-bottom: 1px solid #FF5B29;
+            padding-bottom: 0.25px
         }
         .subtitle-container {
             height: auto;
-            margin: 10px 0 20px 20px;
+            margin: 10px 0 0px 15px;
             display: table;            
             .subtitle-container {
                 width: auto;
-                display:table-cell;          
+                display:table-cell;         
                 .subtitle {
+                    padding: 5px;
                     color: black;
                     font-size: 16px;
-                    margin-right: 19px;
                 }
             }
         }

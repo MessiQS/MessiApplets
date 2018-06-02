@@ -155,9 +155,17 @@
   </view>
   <movable-area class="pop-up-area">
     <movable-view class="pop-up-view" x="{{x}}" y="{{y}}" direction="all" disabled="true">
-      <view class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200'>
-        <text class="next-question-text">下一题</text>
-      </view>
+       <block wx:if="{{isSelected}}">
+            <view wx:if="{{selectedIsRight}}">
+<image src="../../images/next_question_right_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200'>  
+
+      </image>            </view>
+            <view wx:if="{{selectedIsRight==false}}">
+              <image src="../../images/next_question_wrong_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200'>
+      </image>
+            </view>
+          </block>
+      
     </movable-view>
   </movable-area>
 </view>
