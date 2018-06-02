@@ -107,7 +107,7 @@ Page({
 
   answerClick: function (event) {
 
-    console.log("event", event);
+    //console.log("event", event);
 
     var questionPaper = this.data.questionPaper;
     var option = event.currentTarget.dataset.option;
@@ -143,7 +143,7 @@ Page({
 
   singleChoiceQuestion: function (option) {
 
-    console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)
+    //console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)
 
     questionManager.select(option, this.model)
 
@@ -250,10 +250,10 @@ Page({
 
   nextQuestion: function() {
     this.model = questionManager.getNewRandomMemoryModel()
-    console.log("questionManager.getCurrentMemoryModels ", this.model);
+    //console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
-    console.log("isMultipleChoiceQuestion", isMultipleChoiceQuestion);
+    //console.log("isMultipleChoiceQuestion", isMultipleChoiceQuestion);
 
     var option_A_contents = questionManager.renderAnswer(this.model.question.option_A)
     var option_B_contents = questionManager.renderAnswer(this.model.question.option_B)
@@ -279,7 +279,7 @@ Page({
     questionManager.feedbackQuestion(this.model, function(success, response, error) {
 
       if (success) {
-        console.log("success, response, error", success, response, error)
+        //console.log("success, response, error", success, response, error)
       }
     })
   }

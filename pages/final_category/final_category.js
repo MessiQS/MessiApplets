@@ -20,12 +20,12 @@ Page({
   onLoad: function (options) {
 
     const that = this
-    console.log("final_category", options)
+    //console.log("final_category", options)
 
     let item = paperManager.getCurrentPaperItem()
     paperManager.getFinalCategories(options, (success, data, error) => {
       if (success) {
-        console.log("success, data", success, data)
+        //console.log("success, data", success, data)
 
         data.sort((a, b) => {
           if (a.title > b.title) {
@@ -99,7 +99,7 @@ Page({
 
     const that = this
     var item = e.currentTarget.dataset.item
-    console.log("item tap", item)
+    //console.log("item tap", item)
 
     paperManager.setCurrentPaperItem(item)
     questionManager.downloadPaper(item.id, function (success, response, error) {

@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("option", options.data)
+    //console.log("option", options.data)
     var papers = JSON.parse(options.data)
     var list = papers.data.sort((a, b) => {
       if (a.title > b.title) {
@@ -97,7 +97,7 @@ Page({
 
   itemTap: function (e) {
     var item = e.currentTarget.dataset.item
-    console.log("item tap", item)
+    //console.log("item tap", item)
 
     questionManager.downloadPaper(item.id, function (success, response, error) {
       if (success) {
@@ -121,7 +121,7 @@ Page({
 
         // questionManager.getSpecialRecordByPaperId(item.id, function (success, response, error) {
 
-        //   console.log("getSpecialRecordByPaperId", response);
+        //   //console.log("getSpecialRecordByPaperId", response);
         // });
       }
     })

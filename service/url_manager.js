@@ -77,7 +77,7 @@ class URLManager {
     setStyle(attr, style, size, scale) {
         let obj = {}
 
-        console.log("attr", attr, "style", style, "size", size, "scale", scale)
+        //console.log("attr", attr, "style", style, "size", size, "scale", scale)
         obj.height = parseInt(attr['height'] || style['height'] || size[3] * scale, 10)
 
         if (attr['width'] === 'auto' || style['width'] === 'auto') {

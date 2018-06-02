@@ -11,7 +11,7 @@ class PaperManager {
     getMainCategory(callback) {
 
         HTTP.get("/api/getSecondType", {}, function (res) {
-            console.log("api/getSecondType", res.data)
+            //console.log("api/getSecondType", res.data)
             callback(res.data.type, res.data.data, null)
         })
     }
@@ -19,7 +19,7 @@ class PaperManager {
     getFinalCategories(paramDic, callback) {
 
         HTTP.get("/api/getTitleByProvince", paramDic, function (res) {
-            console.log("api/getTitleByProvince", res.data)
+            //console.log("api/getTitleByProvince", res.data)
             callback(res.data.type, res.data.data, null)
         })
     }
@@ -43,7 +43,7 @@ class PaperManager {
         } catch (e) {
             // Do something when catch error
         }
-        console.log("currentPaperItem ", value)
+        //console.log("currentPaperItem ", value)
 
         return currentPaperItem
     }
