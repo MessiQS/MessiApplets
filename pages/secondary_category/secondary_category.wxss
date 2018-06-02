@@ -1,0 +1,28 @@
+.container {
+  position: absolute;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #F6F6F6; }
+  .container .section {
+    position: relative;
+    flex-direction: row;
+    margin-top: 3px;
+    height: 36px;
+    min-width: 80px;
+    background-color: #ffffff; }
+    .container .section .section-title {
+      font-size: 16px;
+      height: 36px;
+      line-height: 36px;
+      margin-left: 20px; }
+    .container .section .arrow {
+      position: absolute;
+      top: 12px;
+      width: 7.4px;
+      height: 12px;
+      right: 26.2px; }
+  .container .button-highlight {
+    background-color: #F5F5F5; }
+
+/*# sourceMappingURL=secondary_category.wxss.map */

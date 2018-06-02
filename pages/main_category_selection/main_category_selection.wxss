@@ -1,0 +1,32 @@
+.container {
+  position: absolute;
+  background-color: #f6f6f6;
+  height: 100%;
+  width: 100%; }
+  .container .section {
+    flex-direction: row;
+    margin-top: 15px;
+    height: auto;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+    padding-top: 10px; }
+    .container .section .title {
+      margin: 7px 0 20px 20px;
+      color: #FF5B29;
+      font-size: 16px;
+      text-decoration-line: underline; }
+    .container .section .subtitle-container {
+      height: auto;
+      margin: 10px 0 20px 20px;
+      display: table; }
+      .container .section .subtitle-container .subtitle-container {
+        width: auto;
+        display: table-cell; }
+        .container .section .subtitle-container .subtitle-container .subtitle {
+          color: black;
+          font-size: 16px;
+          margin-right: 19px; }
+  .container .button-highlight {
+    background-color: #F5F5F5; }
+
+/*# sourceMappingURL=main_category_selection.wxss.map */

@@ -1,0 +1,31 @@
+.container {
+    position: absolute;    
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #F6F6F6;
+    .section {
+        position: relative;
+        flex-direction: row;
+        margin-top: 3px;
+        height: 36px;
+        min-width: 80px;
+        background-color: #ffffff;
+        .section-title {
+            font-size: 16px;            
+            height: 36px;
+            line-height: 36px;
+            margin-left: 20px;
+        }
+        .arrow {
+            position: absolute;
+            top: 12px;
+            width: 7.4px;
+            height: 12px;
+            right: 26.2px;
+        }
+    }
+    .button-highlight {
+        background-color: #F5F5F5;
+    }
+}

@@ -1,0 +1,56 @@
+.container {
+    position: absolute;        
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #F6F6F6;
+    .section {
+        position: relative; 
+        flex-direction: row;
+        height: 36px;
+        background-color: #ffffff;
+        .section-title {
+            float: left;
+            height: 36px;
+            font-size: 16px;
+            line-height: 36px;
+            margin-left: 20px;
+            width: 70%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+        .choose-button {
+            position: absolute;
+            border-radius: 4px;
+            border: 1px solid #FF5B29;
+            width: 50px;
+            height: 25px;
+            right: 10px;
+            top: 6px;
+            text-align: center;
+            .choose-button-title {
+                color: #FF5B29;
+                font-size: 12px;
+            }
+        }
+        .choose-button-selected {
+            position: absolute;
+            border-radius: 4px;
+            border: 1px solid #DDDDDD;
+            width: 50px;
+            height: 25px;
+            right: 10px;
+            top: 6px;
+            text-align: center;
+            .choose-button-title-selected {
+                color: #DDDDDD;
+                font-size: 12px;
+            }
+        }
+    }
+    .button-highlight {
+        background-color: #F5F5F5;
+    }
+}
