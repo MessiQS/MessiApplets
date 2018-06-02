@@ -46,6 +46,7 @@ Page({
     option_B_contents: [],
     option_C_contents: [],
     option_D_contents: [],
+    hasFeedBack: false,
   },
 
   /**
@@ -270,6 +271,7 @@ Page({
       option_B_contents,
       option_C_contents,
       option_D_contents,
+      hasFeedBack: false
     })
   },
 
@@ -288,6 +290,10 @@ Page({
             if (success) {
               console.log("success, response, error", success, response, error)
             }
+
+            that.setData({
+              hasFeedBack: true
+            })
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
