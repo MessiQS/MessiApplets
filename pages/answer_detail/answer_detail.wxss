@@ -28,7 +28,8 @@
     height: 50%;
     width: 100%; }
     .answer-container .section-bottom .answer-scroll {
-      flex-direction: column; }
+      flex-direction: column;
+      height: 100%; }
       .answer-container .section-bottom .answer-scroll .answer-right-wrong {
         position: relative;
         height: 40px; }
@@ -136,28 +137,29 @@
         .answer-container .section-bottom .analysis .feedback-button .feedback-title {
           font-size: 10px;
           color: #172434; }
-  .answer-container .pop-up-area {
-    height: 200px;
-    width: 100px;
-    margin-right: 30px;
-    margin-left: auto; }
-    .answer-container .pop-up-area .pop-up-view {
-      position: fixed;
-      top: 85%;
-      left: 80%;
-      background-color: clear;
-      z-index: 99; }
-      .answer-container .pop-up-area .pop-up-view .next-question-button {
-        height: 30px;
-        text-align: center;
-        border-radius: 15px;
-        background-color: #FF5B29;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px; }
-        .answer-container .pop-up-area .pop-up-view .next-question-button .next-question-text {
-          font-size: 10px;
-          color: white; }
+
+.pop-up-area {
+  height: 200px;
+  width: 100px;
+  margin-right: 30px;
+  margin-left: auto; }
+  .pop-up-area .pop-up-view {
+    position: fixed;
+    top: 85%;
+    left: 80%;
+    background-color: clear;
+    z-index: 99; }
+    .pop-up-area .pop-up-view .next-question-button {
+      height: 30px;
+      text-align: center;
+      border-radius: 15px;
+      background-color: #FF5B29;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px; }
+      .pop-up-area .pop-up-view .next-question-button .next-question-text {
+        font-size: 10px;
+        color: white; }
 
 .button-selected {
   background-color: #F5F5F5; }
