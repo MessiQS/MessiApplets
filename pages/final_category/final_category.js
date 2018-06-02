@@ -102,6 +102,12 @@ Page({
   chooseExam: function(e) {
 
     const that = this
+
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+
     var item = e.currentTarget.dataset.item
     //console.log("item tap", item)
 
@@ -127,6 +133,7 @@ Page({
         that.setData({
           selected_paper_id:item.paper_id
         })
+        wx.hideLoading()
       }
     })
   }
