@@ -89,7 +89,7 @@
           </block>
         </view>
 
-        <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
+        <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A" hover-stop-propagation="{{isSelected}}">
           <view class='left-tab-container'>
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
           </view>
@@ -101,7 +101,7 @@
           </view>
         </view>
 
-        <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
+        <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B" hover-stop-propagation="{{isSelected}}">
           <view class='left-tab-container'>
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
           </view>
@@ -113,7 +113,7 @@
           </view>
         </view>
 
-        <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
+        <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C" hover-stop-propagation="{{isSelected}}">
           <view class='left-tab-container'>
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
           </view>
@@ -125,7 +125,7 @@
           </view>
         </view>
 
-        <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
+        <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D" hover-stop-propagation="{{isSelected}}">
           <view class='left-tab-container'>
             <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
           </view>
@@ -147,7 +147,7 @@
           <text class='analysis-text'>{{questionPaper.analysis}}</text>
         </view>
         <view class='separator-line'></view>
-        <button type="default" class='feedback-button' bindtap="feedbackButtonClick" hover-class='button-selected' hover-stay-time='200'>
+        <button type="default" class='feedback-button' bindtap="feedbackButtonClick" hover-class='button-selected' hover-stay-time='200' disabled="{{hasFeedBack}}">
           报告内容有误
         </button>
       </view>
@@ -165,7 +165,6 @@
       </image>
             </view>
           </block>
-      
     </movable-view>
   </movable-area>
 </view>
