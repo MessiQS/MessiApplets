@@ -22,6 +22,10 @@ Page({
     const that = this
     console.log("final_category", options)
 
+    wx.setNavigationBarTitle({
+      title: options.province//页面标题为路由参数
+    })
+
     let item = paperManager.getCurrentPaperItem()
     paperManager.getFinalCategories(options, (success, data, error) => {
       if (success) {

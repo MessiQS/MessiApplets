@@ -35,11 +35,12 @@
                 right: 10px;
                 top: 6px;
                 text-align: center;
+                display:table;   
                 .choose-button-title {
+                    vertical-align:middle;   
+                    display:table-cell;   
                     color: #FF5B29;
                     font-size: 12px;
-                    margin: 0 auto;
-                    width: 50px;
                 }
             }
             .choose-button-selected {
@@ -51,7 +52,11 @@
                 right: 10px;
                 top: 6px;
                 text-align: center;
+                display:table;   
+                
                 .choose-button-title-selected {
+                    vertical-align:middle;   
+                    display:table-cell; 
                     color: #DDDDDD;
                     font-size: 12px;
                 }

@@ -33,13 +33,13 @@
         height: 25px;
         right: 10px;
         top: 6px;
-        text-align: center; }
+        text-align: center;
+        display: table; }
         .container .section .cell .choose-button .choose-button-title {
+          vertical-align: middle;
+          display: table-cell;
           color: #FF5B29;
-          font-size: 12px;
-          margin: 0 auto;
-          width: 50px;
-          margin-bottom: 2px; }
+          font-size: 12px; }
       .container .section .cell .choose-button-selected {
         position: absolute;
         border-radius: 4px;
@@ -48,8 +48,11 @@
         height: 25px;
         right: 10px;
         top: 6px;
-        text-align: center; }
+        text-align: center;
+        display: table; }
         .container .section .cell .choose-button-selected .choose-button-title-selected {
+          vertical-align: middle;
+          display: table-cell;
           color: #DDDDDD;
           font-size: 12px; }
   .container .button-highlight {

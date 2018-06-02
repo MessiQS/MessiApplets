@@ -40,6 +40,10 @@ Page({
         })
       }
     })
+
+    wx.setNavigationBarTitle({
+      title: "选择题库"//页面标题为路由参数
+    })
   },
 
   /**
