@@ -17,7 +17,7 @@ let callbackCache = {
 function initChartModel(callback, key) {
   return function initChart(canvas, width, height) {
     let option = callback(getQuesObj())
-    console.log(key, callback)
+    // console.log(key, callback)
     // console.log('option =>' + key, option)
     const chart = echarts.init(canvas, null, {
       width: width,
@@ -101,6 +101,7 @@ Page({
     if (paper.title != null && paper.title.length != 0) {
       title = paper.title
     }
+    //刷新chart
     renderChart()
     this.setData({
       chartInfo,
