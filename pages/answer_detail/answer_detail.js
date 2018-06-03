@@ -316,7 +316,6 @@ Page({
       content: '请确认该题是否内容有误',
       success: function (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
           questionManager.feedbackQuestion(that.model, function (success, response, error) {
 
             if (success) {
@@ -328,7 +327,7 @@ Page({
             })
           })
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          
         }
       }
     })
