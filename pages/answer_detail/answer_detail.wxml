@@ -28,7 +28,6 @@
           </view>
 
           <view class="{{A_Status=='selected'?'answer-selected':''}}">
-
             <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
               <view hover-stop-propagation="{{isSelected}}">
                 <view class='left-tab-container'>
@@ -45,7 +44,6 @@
           </view>
 
           <view class="{{B_Status=='selected'?'answer-selected':''}}">
-
             <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
               <view hover-stop-propagation="{{isSelected}}">
                 <view class='left-tab-container'>
@@ -63,15 +61,16 @@
 
           <view class="{{C_Status=='selected'?'answer-selected':''}}">
             <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
-              <view hover-stop-propagation="{{isSelected}}"></view>
-              <view class='left-tab-container'>
-                <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
-              </view>
-              <view class='right-tab-container'>
-                <block wx:for="{{option_C_contents}}" wx:key="unique">
-                  <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                  <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-                </block>
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_C_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
               </view>
             </view>
           </view>
@@ -203,25 +202,24 @@
             </block>
           </view>
           <view class='separator-line'></view>
-          <button type="default" class='feedback-button' bindtap="feedbackButtonClick" hover-class='button-selected' hover-stay-time='200'>
+          <button type="default" class='feedback-button' bindtap="feedbackButtonClick" hover-class='button-selected' hover-stay-time='200' disabled="{{hasFeedBack}}">
             报告内容有误
           </button>
         </view>
       </scroll-view>
     </view>
   </view>
+
   <movable-area class="pop-up-area">
     <movable-view class="pop-up-view" x="{{x}}" y="{{y}}" direction="all" disabled="true">
       <block wx:if="{{isSelected}}">
         <view wx:if="{{selectedIsRight}}">
           <image src="../../images/next_question_right_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200' />
-
         </view>
         <view wx:if="{{selectedIsRight==false}}">
           <image src="../../images/next_question_wrong_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200' />
         </view>
       </block>
-
     </movable-view>
   </movable-area>
 </view>

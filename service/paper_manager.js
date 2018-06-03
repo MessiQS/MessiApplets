@@ -47,6 +47,14 @@ class PaperManager {
 
         return currentPaperItem
     }
+
+    getPaperId() {
+        let paper = this.getCurrentPaperItem()
+        if (paper) {
+            return paper.id
+        }
+        return ""
+    }
 }
 
 

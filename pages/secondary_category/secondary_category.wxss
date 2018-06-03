@@ -1,5 +1,5 @@
 .container {
-  position: absolute;
+  position: relative;
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -9,7 +9,6 @@
     flex-direction: row;
     margin-top: 3px;
     height: 36px;
-    min-width: 80px;
     background-color: #ffffff; }
     .container .section .section-title {
       font-size: 16px;

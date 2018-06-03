@@ -53,7 +53,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log("answer_detail", options)
+    this.type = options.type
+    this.nextQuestion();
+    
   },
 
   /**
@@ -68,7 +71,6 @@ Page({
    */
   onShow: function () {
 
-    this.nextQuestion();
   },
 
   /**
@@ -111,8 +113,6 @@ Page({
     if (this.data.isSelected == true) {
       return
     }
-
-    console.log("event", event);
 
     var questionPaper = this.data.questionPaper;
     var option = event.currentTarget.dataset.option;
@@ -208,8 +208,6 @@ Page({
     const array = this.data.selectedOption;
     let itemStatus = null;
 
-    console.log("multip choice questions", option)
-
     if (this.data.selectedOption.includes(option)) {
       array.splice(array, 1);
       itemStatus = ItemStatus.NORMAL;
@@ -270,9 +268,9 @@ Page({
   },
 
   nextQuestion: function () {
-    this.model = questionManager.getNewRandomMemoryModel()
 
-    // this.model = questionManager.getMemoryModel(43)
+    this.model = questionManager.getRandomMemoryModel(this.type)
+
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
@@ -301,6 +299,11 @@ Page({
       C_Status: ItemStatus.NORMAL,
       D_Status: ItemStatus.NORMAL,
       selectedOption:[],
+    })
+
+    let title = isMultipleChoiceQuestion ? "多选题" : "单选题"
+    wx.setNavigationBarTitle({
+      title
     })
   },
 

@@ -109,7 +109,7 @@ Page({
     })
 
     var item = e.currentTarget.dataset.item
-    //console.log("item tap", item)
+    console.log("item tap", item)
 
     paperManager.setCurrentPaperItem(item)
     questionManager.downloadPaper(item.id, function (success, response, error) {

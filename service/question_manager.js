@@ -3,6 +3,7 @@ const HTTP = require("../utils/http")
 const URLManager = require("./url_manager")
 const moment = require('../utils/moment.min.js')
 const loginManager = require("../service/login_manager")
+const paperManager = require("../service/paper_manager")
 
 var daysTransfer = {
     'Sunday': '周日',
@@ -27,6 +28,19 @@ class QuestionManager {
         if (Array.isArray(memorys) && memorys.length === 0) {
             return false
         }
+        return true
+    }
+
+    hasWrongQuestion() {
+        var memorys = this.getCurrentMemoryModels()
+        if (Array.isArray(memorys) && memorys.length === 0) {
+            return false
+        }
+        var models = memorys.filter(value => value.appearedServeralTime > 0 && value.weighting < 7)
+        if (Array.isArray(models) && models.length === 0) {
+            return false
+        }
+
         return true
     }
 
@@ -105,12 +119,21 @@ class QuestionManager {
         return models
     }
 
-    getNewRandomMemoryModel() {
-        var newModels = this.getCurrentMemoryModels().filter(value => value.appearedServeralTime == 0)
-        this.currentMemoryModelsIndex = Math.floor(Math.random() * newModels.length)
-        var model = newModels[this.currentMemoryModelsIndex]
-        //console.log("getNewRandomMemoryModel ", model)
-        return model
+    getRandomMemoryModel(type) {
+
+        if (type == "new") {
+            var newModels = this.getCurrentMemoryModels().filter(value => value.appearedServeralTime == 0)
+            this.currentMemoryModelsIndex = Math.floor(Math.random() * newModels.length)
+            var model = newModels[this.currentMemoryModelsIndex]
+            return model
+        }
+        
+        if (type == "wrong") {
+            var models = this.getCurrentMemoryModels().filter(value => value.appearedServeralTime > 0 && value.weighting < 7)
+            this.currentMemoryModelsIndex = Math.floor(Math.random() * models.length)
+            var model = models[this.currentMemoryModelsIndex]
+            return model
+        }
     }
 
     getMemoryModel(number) {
@@ -124,7 +147,6 @@ class QuestionManager {
 
         var score = 0
         var isRight = false
-        //console.log("memory model", memoryModel)
         if (option == memoryModel.question.answer) {
 
             score = 7 - memoryModel.appearedServeralTime
@@ -144,12 +166,48 @@ class QuestionManager {
         memoryModel.lastBySelectedTime = time.getTime()
         memoryModel.records.push(record)
 
-        //console.log("memoryModel", memoryModel)
-
-        // this.currentExams[this.currentMemoryModelsIndex] = memoryModel
         var currentModels = this.getCurrentMemoryModels()
         currentModels[this.currentMemoryModelsIndex] = memoryModel
         this.saveToCurrentMemoryModels(currentModels)
+
+
+        this.sendToService(isRight, memoryModel)
+    }
+
+    sendToService(isRight, model) {
+
+        let records = []
+
+        model.records.forEach(value => {
+            let record = {
+                time: value.time,
+                isRight: value.isRight,
+                select: value.select
+            }
+            records.push(record)
+        })
+
+        var param = {
+            user_id: loginManager.getUserId,
+            paper_id: paperManager.getPaperId(),
+            question_id: model.question.id,
+            question_number: model.question.question_number,
+            weighted: model.weighting,
+            lastDateTime: model.lastBySelectedTime,
+            record: JSON.stringify(records),
+            firstDateTime: model.firstBySelectedTime,
+        }
+        if (isRight == true) {
+            param.correct = "1"
+            param.wrong = "0"
+        } else {
+            param.correct = "0"
+            param.wrong = "1"
+        }
+
+        HTTP.post("/api/getUpdateInfoCache", param, function (res) {
+            //console.log("api/wrongFeedBack", res)
+        })
     }
 
     isEmpty(value) {
@@ -157,7 +215,6 @@ class QuestionManager {
     }
 
     filterTag(str) {
-
         return str.replace(/<\/br>/g, "\n\n").replace(/<br\/>/g, "\n\n").replace(/<br/g, "\n\n")
     }
 

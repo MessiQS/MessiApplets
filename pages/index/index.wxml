@@ -28,7 +28,7 @@
     </view>
   </view>
   <view class='section'>
-    <view class='section-top' bindtap='goAnswerButtonClick' hover-class='section-top-selected' hover-stay-time='200' data-type="wrong">
+    <view class='section-top' bindtap='goAnswerButtonClick' hover-class='section-top-selected'hover-stay-time='200' data-type="wrong">
       <image class='section-block block' src='../../images/red_block.png'></image>
       <text class='h4 section-top-title'>未来5日遗忘数量预测</text>
       <text class='section-top-right-title red'>刷错题</text>
