@@ -197,7 +197,10 @@
             <text class='analysis-title'>查看本题解析</text>
           </view>
           <view class='analysis-text-view'>
-            <text class='analysis-text'>{{questionPaper.analysis}}</text>
+            <block wx:for="{{analysis}}" wx:key="unique">
+              <text wx:if="{{item.type=='text'}}" class='option_C_contents'>{{item.content}}</text>
+              <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+            </block>
           </view>
           <view class='separator-line'></view>
           <button type="default" class='feedback-button' bindtap="feedbackButtonClick" hover-class='button-selected' hover-stay-time='200'>

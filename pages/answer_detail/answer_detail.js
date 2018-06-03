@@ -205,12 +205,10 @@ Page({
 
   multipleChoiceQuestions: function (option) {
 
-    if (this.data.isSelected == true) {
-      return
-    }
-
     const array = this.data.selectedOption;
     let itemStatus = null;
+
+    console.log("multip choice questions", option)
 
     if (this.data.selectedOption.includes(option)) {
       array.splice(array, 1);
@@ -247,12 +245,19 @@ Page({
 
   doneSelect: function () {
 
-    if (this.data.isSelected == true) {
-      return
+    const selectedOption = this.data.selectedOption;
+
+    if (selectedOption.length == 0) {
+      return null
     }
+    var sortedSelection = selectedOption.sort().toString()
+    questionManager.select(sortedSelection, this.model)
+    var selectedIsRight = sortedSelection == this.data.questionPaper.answer ? true : false;
+
     this.setData({
       y: 0,
-      isSelected: true
+      isSelected: true,
+      selectedIsRight
     });
   },
 
@@ -265,9 +270,9 @@ Page({
   },
 
   nextQuestion: function () {
-    // this.model = questionManager.getNewRandomMemoryModel()
+    this.model = questionManager.getNewRandomMemoryModel()
 
-    this.model = questionManager.getMemoryModel(61)
+    // this.model = questionManager.getMemoryModel(43)
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
@@ -277,6 +282,7 @@ Page({
     var option_B_contents = questionManager.renderAnswer(this.model.question.option_B)
     var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
     var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
+    var analysis = questionManager.renderAnswer(this.model.question.analysis)
 
     this.setData({
       questionPaper: this.model.question,
@@ -288,11 +294,13 @@ Page({
       option_B_contents,
       option_C_contents,
       option_D_contents,
+      analysis,
       hasFeedBack: false,
       A_Status: ItemStatus.NORMAL,
       B_Status: ItemStatus.NORMAL,
       C_Status: ItemStatus.NORMAL,
       D_Status: ItemStatus.NORMAL,
+      selectedOption:[],
     })
   },
 
