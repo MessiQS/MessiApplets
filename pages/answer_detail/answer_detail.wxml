@@ -1,4 +1,4 @@
-<view >
+<view>
   <view class='answer-container'>
     <view class="section-top">
       <scroll-view scroll-y class='section-scroll'>
@@ -27,61 +27,71 @@
             </view>
           </view>
 
-          <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_A_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
-            </view>
+          <view class="{{A_Status=='selected'?'answer-selected':''}}">
+
+            <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_A_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
             </view>
           </view>
 
-          <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'/>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_B_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
-            </view>
+          <view class="{{B_Status=='selected'?'answer-selected':''}}">
+
+            <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png' />
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_B_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
             </view>
           </view>
 
-          <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
-            </view>
-          <view class='right-tab-container'>
-              <block wx:for="{{option_C_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
-            </view>
+          <view class="{{C_Status=='selected'?'answer-selected':''}}">
+            <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
+              <view hover-stop-propagation="{{isSelected}}"></view>
+              <view class='left-tab-container'>
+                <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
+              </view>
+              <view class='right-tab-container'>
+                <block wx:for="{{option_C_contents}}" wx:key="unique">
+                  <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                  <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                </block>
+              </view>
             </view>
           </view>
 
-          <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_D_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
+          <view class="{{D_Status=='selected'?'answer-selected':''}}">
+            <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_D_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
             </view>
           </view>
-          </view>
+
         </block>
 
         <!-- 单选题 -->
@@ -98,58 +108,86 @@
             </block>
           </view>
 
-          <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_A_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" class='right-tab-answer-image' mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
-            </view>
-          </view>
-</view>
-          <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_B_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
+          <view class="{{A_Status!='normal'?'answer-selected':''}}">
+            <view id='answer-A' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="A">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image wx:if="{{A_Status=='normal'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A.png'></image>
+                  <image wx:if="{{A_Status=='right'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A_Selected_Right.png'></image>
+                  <image wx:if="{{A_Status=='error'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_A_Selected_Error.png'></image>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_A_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text' && A_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && A_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && A_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" class='right-tab-answer-image' mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
             </view>
           </view>
-</view>
-          <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
-           <view hover-stop-propagation="{{isSelected}}">
 
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_C_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
-            </view>
-          </view>
-</view>
-          <view wx:if="{{questionPaper.option_D}}" id='answer-D' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
-           <view hover-stop-propagation="{{isSelected}}">
-            <view class='left-tab-container'>
-              <image class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
-            </view>
-            <view class='right-tab-container'>
-              <block wx:for="{{option_D_contents}}" wx:key="unique">
-                <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
-              </block>
+          <view class="{{B_Status!='normal'?'answer-selected':''}}">
+            <view id='answer-B' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="B">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <block>
+                    <image wx:if="{{B_Status=='normal'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B.png'></image>
+                    <image wx:if="{{B_Status=='right'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B_Selected_Right.png'></image>
+                    <image wx:if="{{B_Status=='error'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_B_Selected_Error.png'></image>
+                  </block>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_B_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text' && B_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && B_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && B_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
             </view>
           </view>
+
+          <view class="{{C_Status!='normal'?'answer-selected':''}}">
+            <view wx:if="{{questionPaper.option_C}}" id='answer-C' class='answer' bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="C">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image wx:if="{{C_Status=='normal'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C.png'></image>
+                  <image wx:if="{{C_Status=='right'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C_Selected_Right.png'></image>
+                  <image wx:if="{{C_Status=='error'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_C_Selected_Error.png'></image>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_C_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text' && C_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && C_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && C_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="{{D_Status!='normal'?'answer-selected':''}}">
+            <view wx:if="{{questionPaper.option_D}}" id='answer-D' class="answer" bindtap="answerClick" hover-class='answer-selected' hover-stay-time='200' data-option="D">
+              <view hover-stop-propagation="{{isSelected}}">
+                <view class='left-tab-container'>
+                  <image wx:if="{{D_Status=='normal'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D.png'></image>
+                  <image wx:if="{{D_Status=='right'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D_Selected_Right.png'></image>
+                  <image wx:if="{{D_Status=='error'}}" class='left-tab-icon' mode='scaleToFit' src='../../images/Option_D_Selected_Error.png'></image>
+                </view>
+                <view class='right-tab-container'>
+                  <block wx:for="{{option_D_contents}}" wx:key="unique">
+                    <text wx:if="{{item.type=='text' && D_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && D_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
+                    <text wx:if="{{item.type=='text' && D_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                  </block>
+                </view>
+              </view>
+            </view>
           </view>
         </block>
         <!-- 错题解析 -->
@@ -171,17 +209,16 @@
   </view>
   <movable-area class="pop-up-area">
     <movable-view class="pop-up-view" x="{{x}}" y="{{y}}" direction="all" disabled="true">
-       <block wx:if="{{isSelected}}">
-            <view wx:if="{{selectedIsRight}}">
-<image src="../../images/next_question_right_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200'>  
+      <block wx:if="{{isSelected}}">
+        <view wx:if="{{selectedIsRight}}">
+          <image src="../../images/next_question_right_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200' />
 
-      </image>            </view>
-            <view wx:if="{{selectedIsRight==false}}">
-              <image src="../../images/next_question_wrong_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200'>
-      </image>
-            </view>
-          </block>
-      
+        </view>
+        <view wx:if="{{selectedIsRight==false}}">
+          <image src="../../images/next_question_wrong_button.png" class="next-question-button" bindtap="nextQuestionButtonClick" hover-class='button-selected' hover-stay-time='200' />
+        </view>
+      </block>
+
     </movable-view>
   </movable-area>
 </view>

@@ -10,8 +10,8 @@
       height: 100%; }
       .answer-container .section-top .section-scroll .question-content {
         margin-top: 20px;
-        margin-right: 10px;
-        margin-left: 10px; }
+        margin-right: 20px;
+        margin-left: 20px; }
         .answer-container .section-top .section-scroll .question-content .question-content-text {
           color: #172434;
           font-size: 16px;
@@ -68,34 +68,35 @@
           float: left;
           position: relative;
           flex-direction: column;
-          width: 43px;
+          width: 53px;
           min-height: 50px;
           padding: auto;
-          display: table; }
+          height: auto; }
           .answer-container .section-bottom .answer-scroll .answer .left-tab-container .left-tab-icon {
-            display: table-cell;
             width: 23px;
             height: 23px;
             position: absolute;
-            top: 0;
+            top: 10px;
             bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            vertical-align: middle; }
+            left: 20px;
+            right: 0; }
         .answer-container .section-bottom .answer-scroll .answer .right-tab-container {
-          overflow: hidden;
           position: relative;
-          display: table;
+          overflow: hidden;
+          padding-top: 7px;
+          padding-right: 20px;
           flex-direction: row;
-          min-height: 50px; }
+          min-height: 40px;
+          height: auto; }
           .answer-container .section-bottom .answer-scroll .answer .right-tab-container .right-tab-answer-title {
-            display: table-cell;
             font-size: 18px;
-            line-height: 25px;
-            vertical-align: middle; }
+            line-height: 25px; }
           .answer-container .section-bottom .answer-scroll .answer .right-tab-container .right-tab-answer-image {
             max-height: 50px; }
+          .answer-container .section-bottom .answer-scroll .answer .right-tab-container .right-tab-answer-title-right {
+            color: #8FDA3C; }
+          .answer-container .section-bottom .answer-scroll .answer .right-tab-container .right-tab-answer-title-wrong {
+            color: #FF5B29; }
       .answer-container .section-bottom .answer-scroll .answer-selected {
         background-color: #F5F5F5; }
     .answer-container .section-bottom .analysis {

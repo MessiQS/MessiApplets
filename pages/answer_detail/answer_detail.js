@@ -265,7 +265,9 @@ Page({
   },
 
   nextQuestion: function () {
-    this.model = questionManager.getNewRandomMemoryModel()
+    // this.model = questionManager.getNewRandomMemoryModel()
+
+    this.model = questionManager.getMemoryModel(61)
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
@@ -286,7 +288,11 @@ Page({
       option_B_contents,
       option_C_contents,
       option_D_contents,
-      hasFeedBack: false
+      hasFeedBack: false,
+      A_Status: ItemStatus.NORMAL,
+      B_Status: ItemStatus.NORMAL,
+      C_Status: ItemStatus.NORMAL,
+      D_Status: ItemStatus.NORMAL,
     })
   },
 

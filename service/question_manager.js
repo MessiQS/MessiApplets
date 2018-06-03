@@ -113,6 +113,13 @@ class QuestionManager {
         return model
     }
 
+    getMemoryModel(number) {
+
+        var models = this.getCurrentMemoryModels().filter(value => value.question.question_number == number)
+     
+        return models[0]
+    }
+
     select(option, memoryModel) {
 
         var score = 0

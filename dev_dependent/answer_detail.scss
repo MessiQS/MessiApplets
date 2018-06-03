@@ -10,8 +10,8 @@
             height: 100%;
             .question-content {
                 margin-top: 20px;
-                margin-right: 10px;
-                margin-left: 10px;
+                margin-right: 20px;
+                margin-left: 20px;
                 .question-content-text {
                     color: #172434;
                     font-size: 16px;
@@ -79,37 +79,41 @@
                     float: left;
                     position: relative;
                     flex-direction: column;
-                    width: 43px;
+                    width: 53px;
                     min-height: 50px;
                     padding: auto;
-                    display: table;
-                    .left-tab-icon {
-                        display:table-cell;                                        
+                    height: auto;
+                    .left-tab-icon {                     
                         width: 23px;
                         height: 23px;
                         position: absolute;
-                        top:0;
+                        top:10px;
                         bottom: 0;
-                        left: 0;
+                        left: 20px;
                         right: 0;
-                        margin: auto;
-                        vertical-align: middle;                        
                     }
                 }
                 .right-tab-container {
-                    overflow: hidden;
                     position: relative;
-                    display: table;
+                    overflow: hidden;
+                    padding-top: 7px;
+                    padding-right: 20px;
                     flex-direction: row;                    
-                    min-height: 50px;
+                    min-height: 40px;
+                    height: auto;
+
                     .right-tab-answer-title {
-                        display:table-cell;
                         font-size: 18px;
                         line-height: 25px;
-                        vertical-align: middle;
                     }
                     .right-tab-answer-image {
                         max-height: 50px;
+                    }
+                    .right-tab-answer-title-right {
+                        color: #8FDA3C
+                    }
+                    .right-tab-answer-title-wrong {
+                        color: #FF5B29;
                     }
                 }
             }
@@ -164,7 +168,6 @@
                 .feedback-title {
                     font-size: 10px;
                     color: #172434;
-
                 }
             }
         }
