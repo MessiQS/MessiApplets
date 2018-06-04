@@ -82,6 +82,11 @@ class OptionController {
             return obj
         }
         obj.width = parseInt(attr['width'] || style['width'] || size[2] * scale, 10)
+        //宽度超出屏幕兼容
+        if(obj.width > winObj.width * 0.7){
+            obj.width = obj.width * 0.6
+            obj.height = obj.width * 0.6
+        }
         return obj
     }
 

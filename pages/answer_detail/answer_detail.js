@@ -270,6 +270,7 @@ Page({
   nextQuestion: function () {
 
     this.model = questionManager.getRandomMemoryModel(this.type)
+    // this.model = questionManager.getMemoryModel(99)
 
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
@@ -281,7 +282,7 @@ Page({
     var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
     var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
     var analysis = questionManager.renderAnswer(this.model.question.analysis)
-
+    console.log(analysis)
     this.setData({
       questionPaper: this.model.question,
       isMultipleChoiceQuestion: isMultipleChoiceQuestion,
