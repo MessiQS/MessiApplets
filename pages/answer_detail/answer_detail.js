@@ -282,10 +282,6 @@ Page({
     var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
     var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
 
-    console.log(option_A_contents)
-    console.log(this.model.question.option_A)
-    console.log(option_B_contents)
-    console.log(this.model.question.option_B)
     var analysis = questionManager.renderAnswer(this.model.question.analysis)
 
     this.setData({

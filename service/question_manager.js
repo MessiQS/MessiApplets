@@ -335,13 +335,15 @@ class QuestionManager {
                 return [{
                     url,
                     type: "image",
-                    width,
-                    height
+                    width: width ? `${width}px` : width,
+                    height: height ? `${height}px` : height,
                 }]
             }
             return [{
                 url,
                 type: "image",
+                width: 'auto',
+                height: 'auto'
             }]
         }
         //文字与图嵌套
@@ -374,13 +376,15 @@ class QuestionManager {
                     return {
                         url,
                         type: "image",
-                        width,
-                        height
+                        width: width ? `${width}px` : width,
+                        height: height ? `${height}px` : height,
                     }
                 }
                 return {
                     url,
                     type: "image",
+                    width: 'auto',
+                    height: 'auto'
                 }
             } else {
                 return {
