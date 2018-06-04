@@ -114,7 +114,6 @@ class QuestionManager {
         } catch (e) {
             // Do something when catch error
         }
-        //console.log("getCurrentMemoryModels ", value)
 
         return models
     }
@@ -215,7 +214,7 @@ class QuestionManager {
     }
 
     filterTag(str) {
-        return str.replace(/<\/br>/g, "\n\n").replace(/<br\/>/g, "\n\n").replace(/<br/g, "\n\n")
+        return str.replace(/<\/br>/g, "\n\n").replace(/<br\/>/g, "\n\n").replace(/<br/g, "\n\n").replace(/<!--StartFragment -->/g, "")
     }
 
     isString(str) {
