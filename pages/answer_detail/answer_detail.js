@@ -269,8 +269,7 @@ Page({
 
   nextQuestion: function () {
 
-    // this.model = questionManager.getRandomMemoryModel(this.type)
-    this.model = questionManager.getMemoryModel(79)
+    this.model = questionManager.getRandomMemoryModel(this.type)
 
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
@@ -281,7 +280,6 @@ Page({
     var option_B_contents = questionManager.renderAnswer(this.model.question.option_B)
     var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
     var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
-
     var analysis = questionManager.renderAnswer(this.model.question.analysis)
 
     this.setData({

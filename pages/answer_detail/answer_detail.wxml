@@ -4,8 +4,8 @@
       <scroll-view scroll-y class='section-scroll'>
         <view class="question-content" wx:for="{{question_contents}}" wx:key="unique">
           <text wx:if="{{item.type == 'text'}}" class="question-content-text">{{item.text}}</text>
-          <image wx:if="{{item.type == 'image'}}" class="question-image" width="{{item.width}}" height="{{item.height}}" src="{{item.url}}" mode="aspectFit"></image>
-          <image wx:if="{{item.type == 'gif'}}" class="question-image" width="{{item.width}}" height="{{item.height}}" src="{{item.url}}" mode="aspectFit"></image>
+          <image wx:if="{{item.type == 'image'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+          <image wx:if="{{item.type == 'gif'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
         </view>
       </scroll-view>
     </view>
@@ -36,7 +36,7 @@
                 <view class='right-tab-container'>
                   <block wx:for="{{option_A_contents}}" wx:key="unique">
                     <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -52,7 +52,7 @@
                 <view class='right-tab-container'>
                   <block wx:for="{{option_B_contents}}" wx:key="unique">
                     <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -68,7 +68,7 @@
                 <view class='right-tab-container'>
                   <block wx:for="{{option_C_contents}}" wx:key="unique">
                     <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -84,7 +84,7 @@
                 <view class='right-tab-container'>
                   <block wx:for="{{option_D_contents}}" wx:key="unique">
                     <text wx:if="{{item.type=='text'}}" class='right-tab-answer-title'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -120,7 +120,7 @@
                     <text wx:if="{{item.type=='text' && A_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && A_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && A_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" class='right-tab-answer-image' mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" class='right-tab-answer-image' mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -142,7 +142,7 @@
                     <text wx:if="{{item.type=='text' && B_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && B_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && B_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -162,7 +162,7 @@
                     <text wx:if="{{item.type=='text' && C_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && C_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && C_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -182,7 +182,7 @@
                     <text wx:if="{{item.type=='text' && D_Status=='normal'}}" class='right-tab-answer-title'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && D_Status=='right'}}" class='right-tab-answer-title right-tab-answer-title-right'>{{item.content}}</text>
                     <text wx:if="{{item.type=='text' && D_Status=='error'}}" class='right-tab-answer-title right-tab-answer-title-wrong'>{{item.content}}</text>
-                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+                    <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
                   </block>
                 </view>
               </view>
@@ -198,7 +198,7 @@
           <view class='analysis-text-view'>
             <block wx:for="{{analysis}}" wx:key="unique">
               <text wx:if="{{item.type=='text'}}" class='option_C_contents'>{{item.content}}</text>
-              <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" width="{{item.width}}" height="{{item.height}}" mode="aspectFit"></image>
+              <image wx:if="{{item.type=='image'}}" mode='scaleToFit' src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" mode="aspectFit"></image>
             </block>
           </view>
           <view class='separator-line'></view>
