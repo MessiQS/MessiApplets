@@ -4,6 +4,7 @@ const URLManager = require("./url_manager")
 const moment = require('../utils/moment.min.js')
 const loginManager = require("../service/login_manager")
 const paperManager = require("../service/paper_manager")
+const OptionController = require("./option.controller")
 
 var daysTransfer = {
     'Sunday': '周日',
@@ -127,7 +128,7 @@ class QuestionManager {
             var model = newModels[this.currentMemoryModelsIndex]
             return model
         }
-        
+
         if (type == "wrong") {
             var models = this.getCurrentMemoryModels().filter(value => value.appearedServeralTime > 0 && value.weighting < 7)
             this.currentMemoryModelsIndex = Math.floor(Math.random() * models.length)
@@ -139,7 +140,7 @@ class QuestionManager {
     getMemoryModel(number) {
 
         var models = this.getCurrentMemoryModels().filter(value => value.question.question_number == number)
-     
+
         return models[0]
     }
 
@@ -311,25 +312,84 @@ class QuestionManager {
         return newArray
     }
 
-    renderAnswer(option) {
-
-        const that = this
-        let imageTagRegex = /<img[^>]+src="?([^"\s]+)"?[^>]*\/>/g;
-        let splits = option.split(imageTagRegex)
-        let items = splits.map((content, index) => {
-            let item = Object()
-
-            if (content.search(/.\/(.*)png/g) >= 0 || content.search(/.\/(.*)jpg/g) >= 0) {
-                item = that.renderAnswerImage(content)
-            } else {
-                item.type = "text"
-                item.content = content
+    renderAnswer(str) {
+        let regex = /<img/g
+        let splits = str.split(regex)
+        const scale = 0.3
+        //没有图片
+        if (splits.length === 1 && str.indexOf('img') < 0) {
+            return [{
+                type: "text",
+                content: str
+            }]
+        }
+        //单图情况
+        if (splits.length === 1 && str.indexOf('img') >= 0 || splits.length === 2 && !splits[0].trim()) {
+            let trueStr = splits.length === 1 && str.indexOf('img') >= 0 ? splits[0] : splits[1]
+            let url = OptionController._handleImageURL(trueStr)
+            let styleObj = OptionController.getStyle(str)
+            let attrObj = OptionController.getAttr(str)
+            let expr = /\/(.*)_(.*)x(.*)_/;
+            let size = url.match(expr)
+            if (Array.isArray(size) && size.length !== 0) {
+                let { width, height } = OptionController.setStyle(attrObj, styleObj, size, scale)
+                return [{
+                    url,
+                    type: "image",
+                    width,
+                    height
+                }]
             }
-            return item
+            return [{
+                url,
+                type: "image",
+            }]
+        }
+        //文字与图嵌套
+        let optionArray = [],
+            count = 0;
+        splits.forEach((result, index) => {
+            if (result.indexOf('/>') >= 0) {
+                let imgArr = result.split('/>')
+                if (!!imgArr[1]) {
+                    optionArray[index] = imgArr
+                } else {
+                    splits[index] = imgArr[0]
+                }
+            }
+        })
+        optionArray.forEach((result, index) => {
+            splits.splice(index, 1 + count, ...result)
+            count++
         })
 
-        //console.log("item", items)
-        return items
+        return splits.map((content, index) => {
+            if (content.search(/.\/(.*)png/g) >= 0 || content.search(/.\/(.*)jpg/g) >= 0) {
+                let url = OptionController._handleImageURL(content)
+                let styleObj = OptionController.getStyle(content)
+                let attrObj = OptionController.getAttr(content)
+                let expr = /\/(.*)_(.*)x(.*)_/;
+                let size = url.match(expr)
+                if (Array.isArray(size) && size.length !== 0) {
+                    let { width, height } = OptionController.setStyle(attrObj, styleObj, size, scale)
+                    return {
+                        url,
+                        type: "image",
+                        width,
+                        height
+                    }
+                }
+                return {
+                    url,
+                    type: "image",
+                }
+            } else {
+                return {
+                    type: "text",
+                    content: content
+                }
+            }
+        })
     }
 
     renderAnswerImage(content) {
@@ -580,7 +640,7 @@ class QuestionManager {
         //console.log("feedback ", model)
         let params = {
             title: model.question.title,
-            id:model.question.id,
+            id: model.question.id,
             question_number: model.question.question_number.toString(),
             user_id: loginManager.getUserId(),
         }
