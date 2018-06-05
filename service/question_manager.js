@@ -282,8 +282,8 @@ class QuestionManager {
                 /// 当图片宽度小于屏幕的0.7倍，不可点击放大
                 let disabled = width < (wx.getSystemInfoSync().windowWidth * 0.7) ? true : false
                 item.type = "image"
-                item.width = width
-                item.height = height
+                item.width = width ? `${width}px` : 'auto'
+                item.height = height ? `${height}px` : 'auto'
                 item.url = url
 
                 return item
