@@ -30,6 +30,16 @@
     .answer-container .section-bottom .answer-scroll {
       flex-direction: column;
       height: 100%; }
+      .answer-container .section-bottom .answer-scroll .question-content {
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px; }
+        .answer-container .section-bottom .answer-scroll .question-content .question-content-text {
+          color: #172434;
+          font-size: 16px;
+          line-height: 25px; }
+        .answer-container .section-bottom .answer-scroll .question-content .question-image {
+          position: relative; }
       .answer-container .section-bottom .answer-scroll .answer-right-wrong {
         position: relative;
         height: 40px; }

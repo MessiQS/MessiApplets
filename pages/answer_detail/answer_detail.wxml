@@ -2,16 +2,32 @@
   <view class='answer-container'>
     <view class="section-top">
       <scroll-view scroll-y class='section-scroll'>
-        <view class="question-content" wx:for="{{question_contents}}" wx:key="unique">
-          <text wx:if="{{item.type == 'text'}}" class="question-content-text">{{item.text}}</text>
-          <image wx:if="{{item.type == 'image'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
-          <image wx:if="{{item.type == 'gif'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+      <block wx:if="{{questionPaper.question_material!=''}}">
+        <view class="question-content" wx:for="{{material_contents}}" wx:key="unique">
+          <text wx:if="{{item.type=='text'}}" class="question-content-text">{{item.text}}</text>
+          <image wx:if="{{item.type=='image'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+          <image wx:if="{{item.type=='gif'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
         </view>
+      </block>
+      <block wx:if="{{questionPaper.question_material==''}}">
+        <view class="question-content" wx:for="{{question_contents}}" wx:key="unique">
+          <text wx:if="{{item.type=='text'}}" class="question-content-text">{{item.text}}</text>
+          <image wx:if="{{item.type=='image'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+          <image wx:if="{{item.type=='gif'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+        </view>
+      </block>        
       </scroll-view>
     </view>
     <view class="separator"></view>
     <view class="section-bottom">
       <scroll-view scroll-y class='answer-scroll'>
+      <block wx:if="{{questionPaper.question_material!=''}}">
+        <view class="question-content" wx:for="{{question_contents}}" wx:key="unique">
+          <text wx:if="{{item.type=='text'}}" class="question-content-text">{{item.text}}</text>
+          <image wx:if="{{item.type=='image'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+          <image wx:if="{{item.type=='gif'}}" class="question-image" style="width: {{item.width}}; height: {{item.height}};" src="{{item.url}}" mode="aspectFit"></image>
+        </view>
+      </block>
         <block wx:if="{{isMultipleChoiceQuestion}}">
           <view class="answer-right-wrong">
             <block wx:if="{{isSelected}}">

@@ -36,6 +36,19 @@
         .answer-scroll {
             flex-direction: column;
             height: 100%;
+            .question-content {
+                margin-top: 20px;
+                margin-right: 20px;
+                margin-left: 20px;
+                .question-content-text {
+                    color: #172434;
+                    font-size: 16px;
+                    line-height: 25px,
+                }
+                .question-image {
+                    position: relative;
+                }
+            }
             .answer-right-wrong {
                 position: relative;
                 height: 40px;

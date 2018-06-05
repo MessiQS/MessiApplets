@@ -270,7 +270,7 @@ Page({
   nextQuestion: function () {
 
     this.model = questionManager.getRandomMemoryModel(this.type)
-
+    // this.model = questionManager.getMemoryModel(70)
     console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
@@ -281,6 +281,13 @@ Page({
     var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
     var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
     var analysis = questionManager.renderAnswer(this.model.question.analysis)
+    var material_contents = []
+    console.log("this.model.question.material", this.model.question.question_material)
+    if (this.model.question.question_material != "") {
+
+      material_contents = questionManager.renderQuestion(this.model.question.question_material)
+      console.log("material_contents",material_contents)
+    }
 
     this.setData({
       questionPaper: this.model.question,
@@ -293,6 +300,7 @@ Page({
       option_C_contents,
       option_D_contents,
       analysis,
+      material_contents,
       hasFeedBack: false,
       A_Status: ItemStatus.NORMAL,
       B_Status: ItemStatus.NORMAL,
