@@ -8,55 +8,60 @@ const paperManager = require("../../service/paper_manager")
 import { newPaper, pieOption, rememberPaper } from '.././../configuration/echart_options.js';
 import * as echarts from '../../vendor/ec-canvas/echarts';
 
-function initChart(canvas, width, height) {
-  const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height
-  });
-  let chartInfo = questionMananger.getChartInfo()
-  let weekday = questionMananger.getChartBeforeWeekday()
-  
-  newPaper.option.series[0].data = chartInfo.beforeArray.map ((value) => {
+let chartCache = {} //存储chart
+let callbackCache = {
+  'ec1': ec1Deal,
+  'ec2': ec2Deal,
+  'pie': peiDeal
+}
+function initChartModel(callback, key) {
+  return function initChart(canvas, width, height) {
+    let option = callback(getQuesObj())
+    // console.log(key, callback)
+    // console.log('option =>' + key, option)
+    const chart = echarts.init(canvas, null, {
+      width: width,
+      height: height
+    });
+    canvas.setChart(chart);
+    chart.setOption(option);
+    chartCache[key] = chart
+    return chart;
+  }
+}
+function getQuesObj() {
+  return {
+    chartInfo: questionMananger.getChartInfo(),
+    weekday: questionMananger.getChartBeforeWeekday()
+  }
+}
+function ec1Deal({ chartInfo, weekday }) {
+  newPaper.option.series[0].data = chartInfo.beforeArray.map((value) => {
     return value.length
   })
   newPaper.option.xAxis[0].data = weekday
-
-  canvas.setChart(chart);
-  chart.setOption(newPaper.option);
-
-  return chart;
+  return newPaper.option
 }
 
-function initChart2(canvas, width, height) {
-  const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height
-  });
-  let chartInfo = questionMananger.getChartInfo()
-  let weekday = questionMananger.getChartFutureWeekday()
-
+function ec2Deal({ chartInfo, weekday }) {
   rememberPaper.option.series[0].data = chartInfo.futureArray
   rememberPaper.option.xAxis[0].data = weekday
-  
-  canvas.setChart(chart);
-  chart.setOption(rememberPaper.option);
-
-  return chart;
+  return rememberPaper.option
 }
 
-function initPie(canvas, width, height) {
-  const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height
-  });
-  let chartInfo = questionMananger.getChartInfo()
-
+function peiDeal({ chartInfo, weekday }) {
   pieOption.option.series[0].data = chartInfo.pieArray
-  
-  canvas.setChart(chart);
-  chart.setOption(pieOption.option);
+  return pieOption.option
+}
 
-  return chart;
+function renderChart() {
+  let chartArr = Object.keys(chartCache)
+  chartArr.forEach(res => {
+    let chart = chartCache[res]
+    let callback = callbackCache[res]
+    let option = callback(getQuesObj())
+    chart.setOption(option)
+  })
 }
 
 Page({
@@ -65,15 +70,15 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     ec: {
-      onInit: initChart
+      onInit: initChartModel(callbackCache['ec1'], 'ec1')
     },
     ec2: {
-      onInit: initChart2
+      onInit: initChartModel(callbackCache['ec2'], 'ec2')
     },
     pie: {
-      onInit: initPie
+      onInit: initChartModel(callbackCache['pie'], 'pie')
     },
-    chartInfo:{},
+    chartInfo: {},
     title: "当前暂无题库信息"
 
   },
@@ -91,17 +96,19 @@ Page({
 
     let chartInfo = questionMananger.getChartInfo()
     let paper = paperManager.getCurrentPaperItem()
-    let title =  "当前暂无题库信息"
+    let title = "当前暂无题库信息"
 
     if (paper.title != null && paper.title.length != 0) {
       title = paper.title
     }
+    //刷新chart
+    renderChart()
     this.setData({
       chartInfo,
       title,
     })
 
-    console.log("chartInfo", chartInfo)
+    // //console.log("chartInfo", chartInfo)
   },
 
   /**
@@ -150,36 +157,20 @@ Page({
       url: '../main_category_selection/main_category_selection?id=1'
     })
   },
-  goAnswerButtonClick: function(e) {
+  goAnswerButtonClick: function (e) {
 
-    let type = e.currentTarget.dataset.type
-
-    if (questionMananger.hasQuestions() == false) {
+    // //console.log("goAnswerButtonClick", e)
+    if (questionMananger.hasQuestions()) {
+      this.navigateToAnswerDetail()
+    } else {
       this.navigateToPaper(e)
-      return
     }
-    console.log("hasWrongQuestion", questionMananger.hasWrongQuestion())
-
-    /// 如果没有错题
-    if (type == "wrong") {
-      if (questionMananger.hasWrongQuestion() == false) {
-        wx.showToast({
-          title: '当前没有剩余题目',
-          icon: 'none',
-          duration: 2000
-        })
-        return
-      }
-    }
-    this.navigateToAnswerDetail(type)
-    return 
-    
   },
   /// 去答题
-  navigateToAnswerDetail: function (type) {
-    console.log("navigateToAnswerDetail", type)
+  navigateToAnswerDetail: function (e) {
+    // //console.log("navigateToAnswerDetail", e)
     wx.navigateTo({
-      url: '../answer_detail/answer_detail?type='+type
+      url: '../answer_detail/answer_detail'
     })
   },
   onLoad: function () {
@@ -214,7 +205,7 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    console.log(e)
+    // //console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
