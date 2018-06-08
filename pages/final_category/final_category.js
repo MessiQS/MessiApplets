@@ -134,6 +134,10 @@ Page({
           selected_paper_id:item.paper_id
         })
         wx.hideLoading()
+
+        wx.navigateBack({
+          delta: 3
+        })
       }
     })
   }

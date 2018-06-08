@@ -147,7 +147,7 @@ Page({
   //去选题
   navigateToPaper: function () {
     wx.navigateTo({
-      url: '../main_category_selection/main_category_selection'
+      url: '../main_category_selection/main_category_selection?id=1'
     })
   },
   goAnswerButtonClick: function(e) {
