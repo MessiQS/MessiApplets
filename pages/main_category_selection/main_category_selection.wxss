@@ -19,11 +19,10 @@
     .container .section .subtitle-container {
       height: auto;
       margin: 10px 0 0px 15px;
-      display: table; }
-      .container .section .subtitle-container .subtitle-container {
-        width: auto;
-        display: table-cell; }
-        .container .section .subtitle-container .subtitle-container .subtitle {
+      float: left; }
+      .container .section .subtitle-container .subtitle-container-trigger {
+        width: auto; }
+        .container .section .subtitle-container .subtitle-container-trigger .subtitle {
           padding: 5px;
           color: black;
           font-size: 16px; }

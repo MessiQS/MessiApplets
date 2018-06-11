@@ -158,20 +158,30 @@ Page({
     })
   },
   goAnswerButtonClick: function (e) {
-
-    // //console.log("goAnswerButtonClick", e)
     if (questionMananger.hasQuestions()) {
-      this.navigateToAnswerDetail()
+      this.navigateToAnswerDetail(e)
     } else {
       this.navigateToPaper(e)
     }
   },
   /// 去答题
   navigateToAnswerDetail: function (e) {
-    // //console.log("navigateToAnswerDetail", e)
+    console.log("navigateToAnswerDetail", e)
+    let type = e.currentTarget.dataset.type
+    if (questionMananger.hasQuestionWithType(type) == false) {
+
+      wx.showToast({
+        title: '当前没有可刷题目',
+        icon: 'none',
+        duration: 2000
+      })
+
+      return
+    }
     wx.navigateTo({
-      url: '../answer_detail/answer_detail'
+      url: '../answer_detail/answer_detail?type='+type
     })
+    
   },
   onLoad: function () {
 

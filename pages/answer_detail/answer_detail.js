@@ -269,6 +269,7 @@ Page({
 
   nextQuestion: function () {
 
+    console.log("this.type", this.type)
     this.model = questionManager.getRandomMemoryModel(this.type)
     // this.model = questionManager.getMemoryModel(70)
     console.log("questionManager.getCurrentMemoryModels ", this.model);

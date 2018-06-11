@@ -2,7 +2,7 @@
     <view class="section">
         <block wx:for="{{items}}" wx:key="unique" wx:for-item="item">
             <view class="cell">
-                <text class="cell-title">《{{item.title}}》</text>
+                <text class="cell-title">{{item.title}}</text>
                 <block wx:if="{{item.paper_id == selected_paper_id}}">
                     <view class="choose-button-selected">
                         <text class="choose-button-title-selected">已选择</text>

@@ -6,7 +6,7 @@
             </view>
             <view class="subtitle-container">
                 <block wx:for="{{cell.content}}" wx:for-item="item" wx:key="subtitle" >
-                    <view class="subtitle-container" bindtap='cagegoryButtonClick' hover-class='button-highlight' hover-stay-time='200' data-item="{{item}}">
+                    <view class="subtitle-trigger" bindtap='cagegoryButtonClick' hover-class='button-highlight' hover-stay-time='200' data-item="{{item}}">
                         <text class="subtitle">{{item.secondType}}</text>
                     </view>
                 </block>

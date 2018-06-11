@@ -20,10 +20,9 @@
         .subtitle-container {
             height: auto;
             margin: 10px 0 0px 15px;
-            display: table;            
-            .subtitle-container {
-                width: auto;
-                display:table-cell;         
+            float: left;
+            .subtitle-container-trigger {
+                width: auto;    
                 .subtitle {
                     padding: 5px;
                     color: black;

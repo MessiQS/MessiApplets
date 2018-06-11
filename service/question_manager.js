@@ -41,8 +41,28 @@ class QuestionManager {
         if (Array.isArray(models) && models.length === 0) {
             return false
         }
-
         return true
+    }
+
+    hasNewQuestion() {
+        var memorys = this.getCurrentMemoryModels()
+        if (Array.isArray(memorys) && memorys.length === 0) {
+            return false
+        }
+        var models = memorys.filter(value => value.appearedServeralTime == 0)
+        if (Array.isArray(models) && models.length === 0) {
+            return false
+        }
+        return true
+    }
+
+    hasQuestionWithType(type) {
+        if (type == "new") {
+            return this.hasNewQuestion()
+        }
+        if (type == "wrong") {
+            return this.hasWrongQuestion()
+        }
     }
 
     getPublicOfficialsInfo(callback) {
@@ -77,14 +97,10 @@ class QuestionManager {
 
     setCurrentMemoryModels(newValue) {
 
-        //console.log("setCurrentMemoryModels newValue", newValue)
         const that = this
-
         /// 过滤 </br> 标签
         newValue.forEach(function (item) {
-
             Object.keys(item.question).forEach(function (key) {
-
                 let value = item.question[key]
                 if (that.isString(value)) {
                     item.question[key] = that.filterTag(value)
