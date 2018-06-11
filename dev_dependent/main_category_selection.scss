@@ -4,7 +4,6 @@
     height: 100%;
     width: 100%;
     .section {
-        flex-direction: row;
         margin-top: 10px;
         height: auto;
         background-color: #ffffff;
@@ -19,10 +18,10 @@
         }
         .subtitle-container {
             height: auto;
-            margin: 10px 0 0px 15px;
+            padding: 10px 0 0px 15px;
             float: left;
-            .subtitle-container-trigger {
-                width: auto;    
+            .subtitle-trigger {
+                float: left;
                 .subtitle {
                     padding: 5px;
                     color: black;
@@ -35,3 +34,10 @@
         background-color: #F5F5F5;
     }
 }
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
