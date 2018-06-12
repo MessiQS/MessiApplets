@@ -1,16 +1,17 @@
 .container {
-  position: relative;
-  flex-direction: row;
+  position: absolute;
   height: 100%;
   width: 100%;
   background-color: #F6F6F6;
-  padding-top: 3px; }
+  padding-top: 3px;
+  display: flex;
+  flex-direction: column;
+  flex: 1; }
   .container .section {
-    position: relative;
-    flex-direction: row;
     margin-top: 3px;
     height: 36px;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    position: relative; }
     .container .section .section-title {
       font-size: 16px;
       height: 36px;

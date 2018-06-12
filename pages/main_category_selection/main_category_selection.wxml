@@ -3,10 +3,8 @@
             wx:key="unique" 
             wx:for-item="cell"
             wx:for="{{categories}}"
-            class="section clearfix">
-            <view>
-                <text class="title">{{cell.type}}</text>
-            </view>
+            class="section">
+            <view class="title">{{cell.type}}</view>
             <view class="subtitle-container clearfix">
                 <view  wx:for="{{cell.content}}" 
                     wx:for-item="item" 
