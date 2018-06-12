@@ -1,32 +1,39 @@
 .container {
   position: absolute;
   background-color: #f6f6f6;
-  height: 100%;
+  height: auto;
   width: 100%; }
   .container .section {
-    flex-direction: row;
-    margin-top: 10px;
     height: auto;
     background-color: #ffffff;
     padding-bottom: 16px;
-    padding-top: 10px; }
+    padding: 7px 0;
+    margin-bottom: 10px;
+    margin-top: 10px; }
     .container .section .title {
-      margin: 7px 0 20px 20px;
       color: #FF5B29;
+      margin-left: 20px;
       font-size: 16px;
       border-bottom: 1px solid #FF5B29;
-      padding-bottom: 0.25px; }
+      padding-bottom: 0.25px;
+      display: initial; }
     .container .section .subtitle-container {
       height: auto;
-      margin: 10px 0 0px 15px;
-      float: left; }
-      .container .section .subtitle-container .subtitle-container-trigger {
-        width: auto; }
-        .container .section .subtitle-container .subtitle-container-trigger .subtitle {
+      padding: 10px 0 0px 15px; }
+      .container .section .subtitle-container .subtitle-trigger {
+        float: left; }
+        .container .section .subtitle-container .subtitle-trigger .subtitle {
           padding: 5px;
           color: black;
           font-size: 16px; }
   .container .button-highlight {
     background-color: #F5F5F5; }
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
 
 /*# sourceMappingURL=main_category_selection.wxss.map */
