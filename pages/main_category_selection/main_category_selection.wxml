@@ -1,16 +1,24 @@
 <view class="container">
-    <block wx:for="{{categories}}" wx:key="unique" wx:for-item="cell">
-        <view class="section">
+        <view 
+            wx:key="unique" 
+            wx:for-item="cell"
+            wx:for="{{categories}}"
+            class="section clearfix">
             <view>
                 <text class="title">{{cell.type}}</text>
             </view>
-            <view class="subtitle-container">
-                <block wx:for="{{cell.content}}" wx:for-item="item" wx:key="subtitle" >
-                    <view class="subtitle-trigger" bindtap='cagegoryButtonClick' hover-class='button-highlight' hover-stay-time='200' data-item="{{item}}">
-                        <text class="subtitle">{{item.secondType}}</text>
-                    </view>
-                </block>
+            <view class="subtitle-container clearfix">
+                <view  wx:for="{{cell.content}}" 
+                    wx:for-item="item" 
+                    wx:key="subtitle"  
+                    class="subtitle-trigger" 
+                    bindtap='cagegoryButtonClick'
+                    hover-class='button-highlight' 
+                    hover-stay-time='200'
+                    data-item="{{item}}"
+                >
+                    <text class="subtitle">{{item.secondType}}</text>
+                </view>
             </view>
         </view>
-    </block>
 </view>
