@@ -9,6 +9,7 @@ page{
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow: scroll;
     .section {
         margin-top: 3px;
         height: 36px;
