@@ -6,8 +6,7 @@
   background-color: #F6F6F6; }
   .container .section {
     background-color: white;
-    margin-top: 10px;
-    padding-bottom: 10px; }
+    margin-top: 10px; }
     .container .section .cell {
       position: relative;
       flex-direction: row;
@@ -15,10 +14,10 @@
       background-color: #ffffff; }
       .container .section .cell .cell-title {
         float: left;
-        height: 36px;
         font-size: 16px;
-        line-height: 36px;
         margin-left: 20px;
+        line-height: 36px;
+        height: 36px;
         width: 70%;
         white-space: nowrap;
         overflow: hidden;
@@ -31,7 +30,7 @@
         width: 50px;
         height: 25px;
         right: 10px;
-        top: 6px;
+        top: 4.5px;
         text-align: center;
         display: table; }
         .container .section .cell .choose-button .choose-button-title {

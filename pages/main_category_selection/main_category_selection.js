@@ -9,21 +9,6 @@ Page({
    */
   data: {
     categories: [
-      {
-        title:"公务员",
-        subtitles:["公考"],
-        action:"gwy"
-      },
-      {
-        title:"会计",
-        subtitles:["初级会计职称", "中级会计职称", "高级会计职称", "注册会计师"],
-        action: "kj"         
-      },
-      {
-        title:"会计",
-        subtitles:["初级会计职称", "中级会计职称", "高级会计职称", "注册会计师"],
-        action: "kj"                 
-      }
     ]
   },
 

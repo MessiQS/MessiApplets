@@ -3,7 +3,12 @@
         <block wx:for="{{items}}" wx:key="unique" wx:for-item="item">
             <view class="cell">
                 <text class="cell-title">{{item.title}}</text>
-                <block wx:if="{{item.paper_id == selected_paper_id}}">
+                <block wx:if="{{item.paper_id == items[0].paper_id && unlock==false}}">
+                    <view class="choose-button" bindtap="unlock" hover-class='button-highlight' hover-stay-time='200'>
+                        <text class="choose-button-title">解锁</text>
+                    </view>
+                </block>
+                <block wx:elif="{{item.paper_id == selected_paper_id}}">
                     <view class="choose-button-selected">
                         <text class="choose-button-title-selected">已选择</text>
                     </view>

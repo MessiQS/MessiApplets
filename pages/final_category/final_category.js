@@ -11,21 +11,19 @@ Page({
    */
   data: {
     selected_paper_id: "",
-    items: []
+    items: [],
+    unlock:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     const that = this
-    //console.log("final_category", options)
-
     wx.setNavigationBarTitle({
       title: options.province//页面标题为路由参数
     })
-
+    
     let item = paperManager.getCurrentPaperItem()
     paperManager.getFinalCategories(options, (success, data, error) => {
       if (success) {
@@ -42,9 +40,13 @@ Page({
           return 0;
         })
 
+        let paperId = data[0].paper_id
+        let paperIds = paperManager.getUnlockPaperIds()
+        let unlock = paperIds.includes(paperId)
         that.setData({
           items: data,
-          selected_paper_id:item.paper_id
+          selected_paper_id:item.paper_id,
+          unlock
         })
       }
     })
@@ -95,12 +97,35 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    console.log("res", res)
+  
+    let unlockPaperId = this.data.items[0].paper_id
+    paperManager.unlockPaper(unlockPaperId)
 
+    return {
+      title: '自定义转发标题',
+      path: '../../index/index'
+    }
+  },
+
+  unlock: function() {
+    const that = this
+    wx.showModal({
+      title: '一起刷题',
+      content: '邀请一位同学即可解锁当前',
+      confirmText: "去邀请",
+      success: function (res) {
+        if (res.confirm) {
+          
+        } else if (res.cancel) {
+          
+        }
+      }
+    })
   },
 
   chooseExam: function(e) {
-
     const that = this
 
     wx.showLoading({
@@ -109,7 +134,6 @@ Page({
     })
 
     var item = e.currentTarget.dataset.item
-    console.log("item tap", item)
 
     paperManager.setCurrentPaperItem(item)
     questionManager.downloadPaper(item.id, function (success, response, error) {
@@ -134,7 +158,6 @@ Page({
           selected_paper_id:item.paper_id
         })
         wx.hideLoading()
-
         wx.navigateBack({
           delta: 3
         })

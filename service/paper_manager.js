@@ -55,6 +55,32 @@ class PaperManager {
         }
         return ""
     }
+
+    getUnlockPaperIds() {
+        let unlockPapers = []
+        try {
+            var value = wx.getStorageSync('UnlockPaper')
+            if (!!value) {
+                // Do something with return value
+                unlockPapers = value
+            }
+        } catch (e) {
+
+        }
+        console.log("UnlockPaper", unlockPapers)
+        return unlockPapers
+    }
+
+    unlockPaper(paper_id) {
+
+        let papers = this.getUnlockPaperIds()
+        papers.push(paper_id)
+        try {
+            wx.setStorageSync('UnlockPaper', papers)
+        } catch (e) {
+
+        }
+    }
 }
 
 

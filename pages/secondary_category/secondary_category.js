@@ -14,9 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     let param = JSON.parse(options.param)
-
     wx.setNavigationBarTitle({
       title: param.secondType//页面标题为路由参数
     })
@@ -80,10 +78,7 @@ Page({
 
   secondaryCagegoryButtonClick: function(e) {
 
-    //console.log("secondaryCagegoryButtonClick", e)
     let item = e.currentTarget.dataset.item
-    //console.log("item", item)
-
     wx.navigateTo({
       url: '../final_category/final_category?sendType=' + this.data.title + "&province=" + item
     })
