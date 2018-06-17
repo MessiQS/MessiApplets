@@ -8,7 +8,8 @@ page {
   padding-top: 3px;
   display: flex;
   flex-direction: column;
-  flex: 1; }
+  flex: 1;
+  overflow: scroll; }
   .container .section {
     margin-top: 3px;
     height: 36px;
