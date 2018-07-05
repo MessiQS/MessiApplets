@@ -1,5 +1,5 @@
-page{
-    height: 100%;
+page {
+    background-color: #F6F6F6;
 }
 .container {
     height: 100%;
@@ -11,22 +11,22 @@ page{
     flex: 1;
     overflow: scroll;
     .section {
-        margin-top: 3px;
-        height: 36px;
+        margin-top: 20px;
+        height: 44px;
         background-color: #ffffff;
         position: relative;
         .section-title {
-            font-size: 16px;            
-            height: 36px;
-            line-height: 36px;
-            margin-left: 20px;
+            font-size: 17px;            
+            height: 44px;
+            line-height: 44px;
+            margin-left: 15px;
         }
         .arrow {
             position: absolute;
-            top: 12px;
+            top: 16px;
             width: 7.4px;
             height: 12px;
-            right: 26.2px;
+            right: 15px;
         }
     }
     .button-highlight {

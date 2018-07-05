@@ -1,3 +1,6 @@
+page {
+    background-color: #f6f6f6;
+}
 .home-container {
     flex-direction: column;
     height: 100%;
@@ -60,7 +63,7 @@
 		flex-direction: column;
         margin-top: 10px;
         background-color: white;
-		height: 300px;
+		height: 304px;
 		.section-top {
 			position: relative;
 			height: 48px;
@@ -120,8 +123,9 @@
 			}
 		}
 		.echart-line-view {
-			height: 200px;
+			height: 204px;
 			width: 100%;
+			z-index: 999;
 		}
     }
     .block {

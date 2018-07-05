@@ -1,29 +1,31 @@
+page {
+    background-color: #f6f6f6;
+}
 .container {
     position: absolute;
     background-color: #f6f6f6;
     height: auto;
     width: 100%;
+    padding-top: 20px;
     .section {
         height: auto;
         background-color: #ffffff;
-        padding-bottom: 16px;
-        // padding-top: 10px;
-        padding: 7px 0;
-        margin-bottom: 10px;
-        margin-top: 10px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
         .title {
             color: #FF5B29;
-            margin-left: 20px;
-            font-size: 16px;
-            border-bottom: 1px solid #FF5B29;
-            padding-bottom: 0.25px;
+            margin-left: 15px;
+            font-size: 18px;
             display:initial;
         }
         .subtitle-container {
             height: auto;
-            padding: 10px 0 0px 15px;
+            padding: 10px 0 0 10px;
+            font-size: 17px;
             .subtitle-trigger {
                 float: left;
+                height: 30px;
                 .subtitle {
                     padding: 5px;
                     color: black;

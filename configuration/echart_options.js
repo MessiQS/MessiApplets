@@ -4,7 +4,7 @@ const newPaper = {
       left: '15',
       right: '15',
       bottom: '3%',
-      top: '8%',
+      top: '20',
       containLabel: true
     },
     xAxis: [
@@ -99,7 +99,7 @@ const rememberPaper = {
       left: '15',
       right: '15',
       bottom: '3%',
-      top: '8%',
+      top: '20',
       containLabel: true
     },
     xAxis: [

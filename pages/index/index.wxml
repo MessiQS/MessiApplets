@@ -1,5 +1,5 @@
 <scroll-view class='home-container'>
-  <view class='select-container' bindtap = "navigateToPaper" hover-class='select-container-selected' hover-stay-time='200'>
+  <view class='select-container' bindtap = "navigateToPaper" hover-class='select-container-selected' hover-stay-time='200' style="margin-top:{{ marginTop }};">
     <image class='green-block block' src='../../images/green_block.png'></image>
     <view class='title-container'>
       <text class='title-paper-name h2'>{{title}}</text>
@@ -10,7 +10,7 @@
     </view>
     <image class='arrow arrow-0' mode='aspectFit' src='../../images/arrow.png'></image>
   </view>
-  <view class='section'>
+  <view class='section' style="margin-top:{{ marginTop }};">
     <view class='section-top' bindtap='goAnswerButtonClick' hover-class='section-top-selected' hover-stay-time='200' data-type="new">
       <image class='section-block block' src='../../images/blue_block.png'></image>
       <text class='h4 section-top-title'>过去5日刷题数量统计</text>
@@ -27,7 +27,7 @@
       <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
     </view>
   </view>
-  <view class='section'>
+  <view class='section' style="margin-top:{{ marginTop }};">
     <view class='section-top' bindtap='goAnswerButtonClick' hover-class='section-top-selected'hover-stay-time='200' data-type="wrong">
       <image class='section-block block' src='../../images/red_block.png'></image>
       <text class='h4 section-top-title'>未来5日遗忘数量预测</text>

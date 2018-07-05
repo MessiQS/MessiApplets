@@ -183,10 +183,22 @@ class QuestionManager {
         memoryModel.records.push(record)
 
         var currentModels = this.getCurrentMemoryModels()
-        currentModels[this.currentMemoryModelsIndex] = memoryModel
+
+        // for (var value in this.currentExams) {
+        //     if (value.question.id ==  memoryModel.question.id) {
+        //         value = memoryModel
+        //     }
+        // }
+
+        for (var i = 0; i < currentModels.length; i++) {
+            if (currentModels[i].question.id == memoryModel.question.id) {
+                console.log("currentModels[i]", currentModels[i], "memoryModel", memoryModel)
+
+                currentModels[i] = memoryModel
+            }
+        }
+        
         this.saveToCurrentMemoryModels(currentModels)
-
-
         this.sendToService(isRight, memoryModel)
     }
 
@@ -222,7 +234,7 @@ class QuestionManager {
         }
 
         HTTP.post("/api/getUpdateInfoCache", param, function (res) {
-            //console.log("api/wrongFeedBack", res)
+            console.log("api/getUpdateInfoCache", res)
         })
     }
 
@@ -448,7 +460,7 @@ class QuestionManager {
         let memorys = this.getCurrentMemoryModels()
 
         var finishedModels = []
-        var unfishedModels = []
+        var unfinishedModels = []
 
         memorys.forEach((value, index) => {
 
@@ -456,13 +468,14 @@ class QuestionManager {
                 finishedModels.push(value)
             }
             if (value.weighting < 7 && value.appearedServeralTime > 0) {
-                unfishedModels.push(value)
+                unfinishedModels.push(value)
             }
         })
-
+        console.log("memorys.length", memorys.length)
 
         var x = finishedModels.length
-        var y = unfishedModels.length
+        var y = unfinishedModels.length
+        console.log("x", x, "y", y)
 
         var futureArray = []
         futureArray.push(x + y)
@@ -534,7 +547,8 @@ class QuestionManager {
         })
 
         object.newQuestionCount = a.length
-        object.wrongQuestionCount = wrongQuestions.length
+        /// 剩余次数
+        object.wrongQuestionCount = y
 
         object.newLastSelectDate = "暂无数据"
         object.wrongLastSelectDate = "暂无数据"
@@ -554,7 +568,7 @@ class QuestionManager {
 
         var newSum = futureArray.reduce(function (a, b) { return a + b })
         var newAvg = newSum / futureArray.length
-
+        /// 平均错题数
         object.wrongAverage = Math.round(newAvg)
 
         if (b.length != 0) {

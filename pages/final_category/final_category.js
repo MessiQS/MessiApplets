@@ -23,7 +23,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.province//页面标题为路由参数
     })
-    
+    console.log("options", options)
     let item = paperManager.getCurrentPaperItem()
     paperManager.getFinalCategories(options, (success, data, error) => {
       if (success) {
@@ -100,12 +100,21 @@ Page({
   onShareAppMessage: function (res) {
     console.log("res", res)
   
-    let unlockPaperId = this.data.items[0].paper_id
-    paperManager.unlockPaper(unlockPaperId)
+    const that = this
 
     return {
-      title: '自定义转发标题',
-      path: '../../index/index'
+      title: '邀请解锁题库，一起高效学习！',
+      path: '/pages/index/index',
+      imageUrl: "/images/share_screen.png",
+      success: function (res) { 
+
+        let unlockPaperId = that.data.items[0].paper_id
+        paperManager.unlockPaper(unlockPaperId)
+        that.setData({
+          unlock:true
+        })
+      },
+      fail: function (res) { }
     }
   },
 

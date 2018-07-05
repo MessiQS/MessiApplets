@@ -56,7 +56,6 @@ Page({
     console.log("answer_detail", options)
     this.type = options.type
     this.nextQuestion();
-    
   },
 
   /**

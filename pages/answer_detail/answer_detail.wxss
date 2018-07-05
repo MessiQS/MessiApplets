@@ -73,13 +73,13 @@
             color: #1495EB; }
       .answer-container .section-bottom .answer-scroll .answer {
         width: 100%;
-        min-height: 50px; }
+        min-height: 20px; }
         .answer-container .section-bottom .answer-scroll .answer .left-tab-container {
           float: left;
           position: relative;
           flex-direction: column;
           width: 53px;
-          min-height: 43px;
+          min-height: 20px;
           padding: auto;
           height: auto; }
           .answer-container .section-bottom .answer-scroll .answer .left-tab-container .left-tab-icon {
@@ -94,9 +94,10 @@
           position: relative;
           overflow: hidden;
           padding-top: 10px;
+          padding-bottom: 10px;
           padding-right: 20px;
           flex-direction: row;
-          min-height: 43px;
+          min-height: 20px;
           height: auto; }
           .answer-container .section-bottom .answer-scroll .answer .right-tab-container .right-tab-answer-title {
             font-size: 18px;

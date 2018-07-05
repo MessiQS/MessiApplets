@@ -103,12 +103,16 @@ Page({
     }
     //刷新chart
     renderChart()
+
+    let spaceTotal = wx.getSystemInfoSync().windowHeight - 78 - 600
+    let space = Math.max(spaceTotal/3, 10)
+
+    let marginTop = space.toString()+"px"
     this.setData({
       chartInfo,
       title,
+      marginTop
     })
-
-    // //console.log("chartInfo", chartInfo)
   },
 
   /**
@@ -166,7 +170,6 @@ Page({
   },
   /// 去答题
   navigateToAnswerDetail: function (e) {
-    console.log("navigateToAnswerDetail", e)
     let type = e.currentTarget.dataset.type
     if (questionMananger.hasQuestionWithType(type) == false) {
 

@@ -3,6 +3,7 @@ const loginManager = require("../service/login_manager")
 const webUrl = basic.initUrl
 
 const post = (api, data, callback) => {
+  data.user_id = loginManager.user_id
   let url = webUrl + api,
   params = {
     url,

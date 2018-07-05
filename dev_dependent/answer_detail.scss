@@ -87,13 +87,13 @@
             }
             .answer {
                 width: 100%;
-                min-height: 50px;
+                min-height: 20px;
                 .left-tab-container {
                     float: left;
                     position: relative;
                     flex-direction: column;
                     width: 53px;
-                    min-height: 43px;
+                    min-height: 20px;
                     padding: auto;
                     height: auto;
                     .left-tab-icon {                     
@@ -110,9 +110,10 @@
                     position: relative;
                     overflow: hidden;
                     padding-top: 10px;
+                    padding-bottom: 10px;
                     padding-right: 20px;
                     flex-direction: row;                    
-                    min-height: 43px;
+                    min-height: 20px;
                     height: auto;
 
                     .right-tab-answer-title {
