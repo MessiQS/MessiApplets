@@ -19,7 +19,6 @@ Page({
       title: param.secondType//页面标题为路由参数
     })
 
-    console.log("secondary category", options)
     this.setData({
       title:param.secondType,
       categories:param.content

@@ -99,21 +99,15 @@ Page({
    * init data
    */
   prepareData: function() {
-
-    //console.log("loginManager", loginManager.token)
     var that = this
     questionManager.getPublicOfficialsInfo(function(success, response, error) {
-
       that.setData ({
         provinces: response
       })
     });
   }, 
   navigateToSelectPaperVC: function(item) {
-
-    //console.log("item", item)
     var data = item.currentTarget.dataset.item
-    //console.log("data", data)
     wx.navigateTo({
       url: '../paper_selection/paper_selection?data=' + JSON.stringify(data)
     })

@@ -20,7 +20,6 @@ Page({
     const that = this
     paperManager.getMainCategory((success, data, error) => {
       if (success) {
-        console.log(JSON.stringify(data))
         that.setData({
           categories: data
         })

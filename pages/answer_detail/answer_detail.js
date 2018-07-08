@@ -53,7 +53,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("answer_detail", options)
     this.type = options.type
     this.nextQuestion();
   },
@@ -150,8 +149,6 @@ Page({
     if (this.data.isSelected == true) {
       return
     }
-
-    console.log("singleChoiceQuestion option", option, "this.data.questionPaper.answer", this.data.questionPaper.answer)
 
     questionManager.select(option, this.model)
 
@@ -268,13 +265,11 @@ Page({
 
   nextQuestion: function () {
 
-    console.log("this.type", this.type)
     this.model = questionManager.getRandomMemoryModel(this.type)
+    console.log("this.type", this.type)
     // this.model = questionManager.getMemoryModel(70)
-    console.log("questionManager.getCurrentMemoryModels ", this.model);
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
-    console.log("isMultipleChoiceQuestion", isMultipleChoiceQuestion);
 
     var option_A_contents = questionManager.renderAnswer(this.model.question.option_A)
     var option_B_contents = questionManager.renderAnswer(this.model.question.option_B)
@@ -282,11 +277,9 @@ Page({
     var option_D_contents = questionManager.renderAnswer(this.model.question.option_D)
     var analysis = questionManager.renderAnswer(this.model.question.analysis)
     var material_contents = []
-    console.log("this.model.question.material", this.model.question.question_material)
     if (this.model.question.question_material != "") {
 
       material_contents = questionManager.renderQuestion(this.model.question.question_material)
-      console.log("material_contents",material_contents)
     }
 
     this.setData({
@@ -316,9 +309,7 @@ Page({
   },
 
   feedbackButtonClick: function () {
-
     const that = this
-
     wx.showModal({
       title: '错题反馈',
       content: '请确认该题是否内容有误',

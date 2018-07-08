@@ -23,7 +23,6 @@ Page({
     wx.setNavigationBarTitle({
       title: options.province//页面标题为路由参数
     })
-    console.log("options", options)
     let item = paperManager.getCurrentPaperItem()
     paperManager.getFinalCategories(options, (success, data, error) => {
       if (success) {
@@ -163,12 +162,19 @@ Page({
           array.push(memoryModel); 
         }
         questionManager.setCurrentMemoryModels(array);
-        that.setData({
-          selected_paper_id:item.paper_id
-        })
-        wx.hideLoading()
-        wx.navigateBack({
-          delta: 3
+        questionManager.handleMemoryModels(function(success, data, error) {
+          if (success) {
+            that.setData({
+              selected_paper_id:item.paper_id
+            })
+            wx.hideLoading()
+            wx.navigateBack({
+              delta: 3
+            })
+
+            return
+          }
+          
         })
       }
     })

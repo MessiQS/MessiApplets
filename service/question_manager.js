@@ -65,36 +65,6 @@ class QuestionManager {
         }
     }
 
-    getPublicOfficialsInfo(callback) {
-
-        HTTP.get("/api/papertype", {}, function (res) {
-            //console.log("api/papertype", res.data)
-            callback(res.data.type, res.data.data, null)
-        })
-    }
-
-    getSpecialRecordByPaperId(paper_id, callback) {
-
-        HTTP.get("/api/getQuestionInfoByPaperid", {
-            paper_id
-        }, function (res) {
-            //console.log("api/getQuestionInfoByPaperid", res)
-            callback(res.data.type, res.data.data, null)
-        })
-    }
-
-    downloadPaper(paperId, callback) {
-
-        var that = this
-        HTTP.get("/api/getpaper", {
-            paperId
-        }, function (res) {
-            //console.log("api/getpaper", res)
-            that.currentExams = res.data.data
-            callback(res.data.type, res.data.data, null)
-        })
-    }
-
     setCurrentMemoryModels(newValue) {
 
         const that = this
@@ -111,12 +81,45 @@ class QuestionManager {
         this.saveToCurrentMemoryModels(newValue)
     }
 
+    handleMemoryModels(callback) {
+
+        const that = this
+        that.getSpecialRecordByPaperId(paperManager.getPaperId(), function(success, data, error) {
+            if (success) {
+                let keys = Object.keys(data)
+                var memorys = that.getCurrentMemoryModels()
+                let key = keys[0]
+                let records = data[key]
+                for (let key in records) {
+                    let record = records[key]
+                    for (let memory of memorys) {
+                        if (record.question_id == memory.question.id) {
+                            that.saveRecordToMemory(memory, record)
+                        }
+                    }
+                }
+                that.saveToCurrentMemoryModels(memorys)
+                callback(success, memorys, null)
+                return 
+            }
+            callback(success, null, error)
+        })
+    }
+
+    saveRecordToMemory(memory, record) {
+        memory.firstBySelectedTime = record.firstDateTime
+        memory.lastBySelectedTime = record.lastDateTime
+        memory.records = JSON.parse(record.record)
+        memory.weighted = record.weighted
+        memory.correct = record.correct
+    }
+
     saveToCurrentMemoryModels(value) {
 
         try {
             wx.setStorageSync('currentMemoryModels', value)
         } catch (e) {
-
+            console.log("saveToCurrentMemoryModels error", e)
         }
     }
 
@@ -200,42 +203,6 @@ class QuestionManager {
         
         this.saveToCurrentMemoryModels(currentModels)
         this.sendToService(isRight, memoryModel)
-    }
-
-    sendToService(isRight, model) {
-
-        let records = []
-
-        model.records.forEach(value => {
-            let record = {
-                time: value.time,
-                isRight: value.isRight,
-                select: value.select
-            }
-            records.push(record)
-        })
-
-        var param = {
-            user_id: loginManager.getUserId,
-            paper_id: paperManager.getPaperId(),
-            question_id: model.question.id,
-            question_number: model.question.question_number,
-            weighted: model.weighting,
-            lastDateTime: model.lastBySelectedTime,
-            record: JSON.stringify(records),
-            firstDateTime: model.firstBySelectedTime,
-        }
-        if (isRight == true) {
-            param.correct = "1"
-            param.wrong = "0"
-        } else {
-            param.correct = "0"
-            param.wrong = "1"
-        }
-
-        HTTP.post("/api/getUpdateInfoCache", param, function (res) {
-            console.log("api/getUpdateInfoCache", res)
-        })
     }
 
     isEmpty(value) {
@@ -471,11 +438,9 @@ class QuestionManager {
                 unfinishedModels.push(value)
             }
         })
-        console.log("memorys.length", memorys.length)
 
         var x = finishedModels.length
         var y = unfinishedModels.length
-        console.log("x", x, "y", y)
 
         var futureArray = []
         futureArray.push(x + y)
@@ -681,6 +646,72 @@ class QuestionManager {
         HTTP.post("/api/wrongFeedBack", params, function (res) {
             //console.log("api/wrongFeedBack", res)
             callback(res.data.type, res.data.data, null)
+        })
+    }
+
+    getPublicOfficialsInfo(callback) {
+
+        HTTP.get("/api/papertype", {}, function (res) {
+            //console.log("api/papertype", res.data)
+            callback(res.data.type, res.data.data, null)
+        })
+    }
+
+    getSpecialRecordByPaperId(paper_id, callback) {
+
+        HTTP.get("/api/getQuestionInfoByPaperid", {
+            paper_id
+        }, function (res) {
+            console.log("api/getQuestionInfoByPaperid", res)
+            callback(res.data.type, res.data.data, null)
+        })
+    }
+
+    downloadPaper(paperId, callback) {
+
+        var that = this
+        HTTP.get("/api/getpaper", {
+            paperId
+        }, function (res) {
+            //console.log("api/getpaper", res)
+            that.currentExams = res.data.data
+            callback(res.data.type, res.data.data, null)
+        })
+    }
+
+    sendToService(isRight, model) {
+
+        let records = []
+
+        model.records.forEach(value => {
+            let record = {
+                time: value.time,
+                isRight: value.isRight,
+                select: value.select
+            }
+            records.push(record)
+        })
+
+        var param = {
+            user_id: loginManager.getUserId,
+            paper_id: paperManager.getPaperId(),
+            question_id: model.question.id,
+            question_number: model.question.question_number,
+            weighted: model.weighting,
+            lastDateTime: model.lastBySelectedTime,
+            record: JSON.stringify(records),
+            firstDateTime: model.firstBySelectedTime,
+        }
+        if (isRight == true) {
+            param.correct = "1"
+            param.wrong = "0"
+        } else {
+            param.correct = "0"
+            param.wrong = "1"
+        }
+
+        HTTP.post("/api/getUpdateInfoCache", param, function (res) {
+            console.log("api/getUpdateInfoCache", res)
         })
     }
 }
