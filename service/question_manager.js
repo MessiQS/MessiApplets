@@ -82,7 +82,6 @@ class QuestionManager {
     }
 
     handleMemoryModels(callback) {
-
         const that = this
         that.getSpecialRecordByPaperId(paperManager.getPaperId(), function(success, data, error) {
             if (success) {
@@ -709,7 +708,7 @@ class QuestionManager {
             param.correct = "0"
             param.wrong = "1"
         }
-
+        console.log("api/getUpdateInfoCache param", param)
         HTTP.post("/api/getUpdateInfoCache", param, function (res) {
             console.log("api/getUpdateInfoCache", res)
         })

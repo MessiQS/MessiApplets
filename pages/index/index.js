@@ -17,8 +17,6 @@ let callbackCache = {
 function initChartModel(callback, key) {
   return function initChart(canvas, width, height) {
     let option = callback(getQuesObj())
-    // console.log(key, callback)
-    // console.log('option =>' + key, option)
     const chart = echarts.init(canvas, null, {
       width: width,
       height: height
@@ -172,13 +170,11 @@ Page({
   navigateToAnswerDetail: function (e) {
     let type = e.currentTarget.dataset.type
     if (questionMananger.hasQuestionWithType(type) == false) {
-
       wx.showToast({
         title: '当前没有可刷题目',
         icon: 'none',
         duration: 2000
       })
-
       return
     }
     wx.navigateTo({

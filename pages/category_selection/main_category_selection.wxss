@@ -1,0 +1,15 @@
+.container {
+  background-color: #f6f6f6;
+  height: 100%;
+  width: 100%; }
+  .container .categories {
+    height: auto; }
+    .container .categories .section .title {
+      color: #FF5B29;
+      font-size: 16px;
+      text-decoration-line: underline; }
+    .container .categories .section .subtitle {
+      color: black;
+      font-size: 16px; }
+
+/*# sourceMappingURL=main_category_selection.wxss.map */

@@ -53,8 +53,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("answer_detail", options)
     this.type = options.type
     this.nextQuestion();
+
   },
 
   /**
@@ -266,11 +268,8 @@ Page({
   nextQuestion: function () {
 
     this.model = questionManager.getRandomMemoryModel(this.type)
-    console.log("this.type", this.type)
-    // this.model = questionManager.getMemoryModel(70)
     var isMultipleChoiceQuestion = this.isMultipleChoiceQuestion(this.model.question);
     var contents = questionManager.renderQuestion(this.model.question.question);
-
     var option_A_contents = questionManager.renderAnswer(this.model.question.option_A)
     var option_B_contents = questionManager.renderAnswer(this.model.question.option_B)
     var option_C_contents = questionManager.renderAnswer(this.model.question.option_C)
@@ -281,7 +280,6 @@ Page({
 
       material_contents = questionManager.renderQuestion(this.model.question.question_material)
     }
-
     this.setData({
       questionPaper: this.model.question,
       isMultipleChoiceQuestion: isMultipleChoiceQuestion,
@@ -299,7 +297,7 @@ Page({
       B_Status: ItemStatus.NORMAL,
       C_Status: ItemStatus.NORMAL,
       D_Status: ItemStatus.NORMAL,
-      selectedOption:[],
+      selectedOption: [],
     })
 
     let title = isMultipleChoiceQuestion ? "多选题" : "单选题"
@@ -309,7 +307,9 @@ Page({
   },
 
   feedbackButtonClick: function () {
+
     const that = this
+
     wx.showModal({
       title: '错题反馈',
       content: '请确认该题是否内容有误',
@@ -326,7 +326,7 @@ Page({
             })
           })
         } else if (res.cancel) {
-          
+
         }
       }
     })

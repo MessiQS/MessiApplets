@@ -20,17 +20,16 @@ page {
       position: relative;
       margin-left: 35px;
       width: 70%;
-      height: 78px; }
+      height: auto; }
       .home-container .select-container .title-container .title-paper-name {
         position: absolute;
         top: 17px;
         text-align: left;
-        width: 80%;
-        line-height: 25px;
-        white-space: nowrap;
+        width: 50%;
+        line-height: 1.5em;
+        height: 3em;
         overflow: hidden;
-        text-overflow: ellipsis;
-        display: block; }
+        text-overflow: ellipsis; }
       .home-container .select-container .title-container .title-paper-detail {
         position: absolute;
         top: 48px;
@@ -38,13 +37,19 @@ page {
     .home-container .select-container .circle-chart {
       position: absolute;
       top: 10px;
-      right: 40px;
+      right: 30%;
       width: 60px;
       height: 60px; }
-    .home-container .select-container .arrow-0 {
+    .home-container .select-container .select-container-right-title {
       position: absolute;
-      top: 34px;
-      right: 18.8px; }
+      top: 10px;
+      right: 15px;
+      font-size: 13px;
+      padding: 3px 8px; }
+    .home-container .select-container .green {
+      color: #1AAD19;
+      border: 1px solid #1AAD19;
+      border-radius: 4px; }
   .home-container .select-container-selected {
     background-color: #F5F5F5; }
   .home-container .select-container::after {
@@ -67,17 +72,18 @@ page {
         height: 100%; }
       .home-container .section .section-top .section-top-right-title {
         position: absolute;
-        top: 12px;
-        right: 50px;
-        font-size: 16px; }
+        top: 10px;
+        right: 15px;
+        font-size: 13px;
+        padding: 3px 8px; }
       .home-container .section .section-top .blue {
-        color: #1495EB; }
+        color: #1495EB;
+        border: 1px solid #1495EB;
+        border-radius: 4px; }
       .home-container .section .section-top .red {
-        color: #FF5B29; }
-      .home-container .section .section-top .arrow-1 {
-        position: absolute;
-        top: 19px;
-        right: 18.8px; }
+        color: #FF5B29;
+        border: 1px solid #FF5B29;
+        border-radius: 4px; }
     .home-container .section .section-top-selected {
       background-color: #F5F5F5; }
     .home-container .section .section-bottom {
